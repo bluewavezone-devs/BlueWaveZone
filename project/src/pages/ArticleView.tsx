@@ -23,7 +23,7 @@ const ArticleView: React.FC = () => {
   }
 
   return (
-    <div className="container py-20 px-4 mx-auto max-w-6xl">
+    <div className="container pt-32 pb-20 px-4 mx-auto max-w-6xl">
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Main Article */}
         <div className="flex-1 bg-white rounded-2xl shadow-lg overflow-hidden">

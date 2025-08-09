@@ -55,23 +55,6 @@ const About: React.FC = () => {
   return (
     <>
       <div className="pt-32">
-      {/* Hero Section */}
-      <section className="section py-24">
-        <div className="container flex flex-col items-center justify-center text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold mb-4 tracking-tight">
-            ABOUT <span className="text-teal-600 underline decoration-4 decoration-teal-400">BLUEWAVE ZONE</span>
-          </h1>
-          <p className="text-xl sm:text-2xl text-gray-700 max-w-2xl mx-auto mb-8 mt-2">
-            Meet The Team Behind The Science And Our Mission To Transform The World With Soil Bacteria.
-          </p>
-          <a
-            href="/about"
-            className="px-6 py-3 rounded border border-teal-600 text-teal-700 bg-white font-medium shadow hover:bg-teal-50 transition-colors mb-10"
-          >
-            Meet Our Team
-          </a>
-        </div>
-      </section>
       <div className="w-full border-t border-gray-200 mb-2"></div>
       <div className="text-center text-lg font-serif text-gray-800 mb-8">
         Our Mission <span className="text-teal-600">Is AN Inspired</span> Vision

@@ -3,6 +3,7 @@ import ArticleCard from '../components/ArticleCard';
 
 export interface Author {
   name: string;
+  email?: string;
   avatar: string;
   bio: string;
 }
@@ -27,9 +28,10 @@ export const articlePosts: ArticlePost[] = [
     image: 'https://images.pexels.com/photos/1108701/pexels-photo-1108701.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: 'rhizosphere-bacteria',
     author: {
-      name: 'Dr. Jane Smith',
-      avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-      bio: 'Soil microbiologist and science communicator.'
+      name: 'Harry Trisos',
+      email: 'harrytrisos@gmail.com',
+      avatar: 'https://ui-avatars.com/api/?name=Harry+Trisos&background=4a7c59&color=fff',
+      bio: 'Lead Researcher at BlueWave Zone'
     },
     content: (
       <div>
@@ -77,9 +79,10 @@ export const articlePosts: ArticlePost[] = [
     image: 'https://images.pexels.com/photos/1000445/pexels-photo-1000445.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: 'extraction-methods',
     author: {
-      name: 'Dr. John Doe',
-      avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-      bio: 'Environmental microbiologist and laboratory director.'
+      name: 'Harry Trisos',
+      email: 'harrytrisos@gmail.com',
+      avatar: 'https://ui-avatars.com/api/?name=Harry+Trisos&background=4a7c59&color=fff',
+      bio: 'Lead Researcher at BlueWave Zone'
     },
     content: (
       <div>
@@ -100,9 +103,10 @@ export const articlePosts: ArticlePost[] = [
     image: 'https://images.pexels.com/photos/3735743/pexels-photo-3735743.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: 'industrial-applications',
     author: {
-      name: 'Dr. Emily Clark',
-      avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
-      bio: 'Bioprocess engineer and sustainability advocate.'
+      name: 'Harry Trisos',
+      email: 'harrytrisos@gmail.com',
+      avatar: 'https://ui-avatars.com/api/?name=Harry+Trisos&background=4a7c59&color=fff',
+      bio: 'Lead Researcher at BlueWave Zone'
     },
     content: (
       <div>
@@ -118,9 +122,10 @@ export const articlePosts: ArticlePost[] = [
     image: 'https://images.pexels.com/photos/593836/pexels-photo-593836.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: 'gut-microbiota',
     author: {
-      name: 'Dr. Alan Kim',
-      avatar: 'https://randomuser.me/api/portraits/men/56.jpg',
-      bio: 'Medical microbiologist and public health educator.'
+      name: 'Harry Trisos',
+      email: 'harrytrisos@gmail.com',
+      avatar: 'https://ui-avatars.com/api/?name=Harry+Trisos&background=4a7c59&color=fff',
+      bio: 'Lead Researcher at BlueWave Zone'
     },
     content: (
       <div>
@@ -136,9 +141,10 @@ export const articlePosts: ArticlePost[] = [
     image: 'https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: 'bacterial-agriculture',
     author: {
-      name: 'Dr. Priya Nair',
-      avatar: 'https://randomuser.me/api/portraits/women/85.jpg',
-      bio: 'Agricultural scientist and innovation leader.'
+      name: 'Harry Trisos',
+      email: 'harrytrisos@gmail.com',
+      avatar: 'https://ui-avatars.com/api/?name=Harry+Trisos&background=4a7c59&color=fff',
+      bio: 'Lead Researcher at BlueWave Zone'
     },
     content: (
       <div>
@@ -154,9 +160,10 @@ export const articlePosts: ArticlePost[] = [
     image: 'https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg?auto=compress&cs=tinysrgb&w=800',
     href: 'waste-treatment-microbes',
     author: {
-      name: 'Dr. Carlos Rivera',
-      avatar: 'https://randomuser.me/api/portraits/men/75.jpg',
-      bio: 'Environmental engineer and microbial ecologist.'
+      name: 'Harry Trisos',
+      email: 'harrytrisos@gmail.com',
+      avatar: 'https://ui-avatars.com/api/?name=Harry+Trisos&background=4a7c59&color=fff',
+      bio: 'Lead Researcher at BlueWave Zone'
     },
     content: (
       <div>
