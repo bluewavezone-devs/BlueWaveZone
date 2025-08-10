@@ -57,7 +57,7 @@ const HeroSection: React.FC = () => {
             fontWeight: 500,
             textTransform: 'uppercase',
             lineHeight: '48px',
-            margin: '10px 0',
+            margin: '15px 0 0',
             letterSpacing: 1,
             textAlign: 'center',
             position: 'relative',
@@ -72,7 +72,7 @@ const HeroSection: React.FC = () => {
       </motion.div>
       
       <motion.div 
-        className="flex justify-center gap-3 mt-2 mb-8"
+        className="flex justify-start gap-3 mt-2 mb-6 -ml-3"
         variants={{
           hidden: { opacity: 0 },
           show: {
@@ -87,21 +87,23 @@ const HeroSection: React.FC = () => {
         <motion.div 
           variants={underline}
           style={{ 
-            width: 300, 
-            height: 6, 
+            width: 302, // Decreased width by 1px
+            height: 4, // Reduced height from 6px to 4px
             background: 'var(--color-teal)', 
-            borderRadius: 3,
+            borderRadius: 2, // Slightly reduced border radius to match new height
             transformOrigin: 'left center',
+            marginLeft: 15, // Maintain left margin for alignment
           }} 
         />
         <motion.div 
           variants={underline}
           style={{ 
-            width: 300, 
-            height: 6, 
+            width: 262, // Decreased width by 20px
+            height: 4, // Reduced height from 6px to 4px
             background: 'var(--color-deep-blue)', 
-            borderRadius: 3,
+            borderRadius: 2, // Slightly reduced border radius to match new height
             transformOrigin: 'right center',
+            marginRight: 3.5, // Maintain right margin for alignment
           }} 
         />
       </motion.div>
@@ -208,9 +210,9 @@ const HeroSection: React.FC = () => {
               }
             }}
           >
-            The Science{' '}
+            The Science Is A{' '}
             <TypewriterText
-              words={["Is A Next Le"]}
+              words={["Next Level", "Innovative", "World Healing"]}
               prefix=""
               suffix=""
             />{' '}

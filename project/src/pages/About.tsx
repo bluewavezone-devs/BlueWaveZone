@@ -1,57 +1,8 @@
 import React, { useState } from 'react';
-import { Users, Award, Target, Globe, Mail, FileText } from 'lucide-react';
-import TypewriterText from '../components/TypewriterText';
+import { motion } from 'framer-motion';
+import { Mail, FileText } from 'lucide-react';
 
 const About: React.FC = () => {
-  const values = [
-    {
-      icon: Target,
-      title: 'Innovation',
-      description: 'Pioneering research in bacterial extraction and application to solve real-world problems.'
-    },
-    {
-      icon: Globe,
-      title: 'Sustainability',
-      description: 'Developing environmentally responsible solutions that benefit both people and planet.'
-    },
-    {
-      icon: Users,
-      title: 'Collaboration',
-      description: 'Working with partners across academia, industry, and government to maximize impact.'
-    },
-    {
-      icon: Award,
-      title: 'Excellence',
-      description: 'Maintaining the highest standards in research methodology and scientific integrity.'
-    }
-  ];
-
-  const team = [
-    {
-      name: 'Dr. Sarah Chen',
-      role: 'Chief Scientific Officer',
-      image: 'https://images.pexels.com/photos/3760259/pexels-photo-3760259.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'Leading microbiologist with 15 years of experience in soil bacterial ecology and biotechnology applications.'
-    },
-    {
-      name: 'Prof. Michael Rodriguez',
-      role: 'Director of Research',
-      image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'Expert in agricultural biotechnology and sustainable farming practices with over 20 publications.'
-    },
-    {
-      name: 'Dr. Aisha Patel',
-      role: 'Lead Biotechnologist',
-      image: 'https://images.pexels.com/photos/3760266/pexels-photo-3760266.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'Specialist in industrial applications of bacteria with focus on environmental sustainability.'
-    },
-    {
-      name: 'Dr. James Thompson',
-      role: 'Medical Research Director',
-      image: 'https://images.pexels.com/photos/3760269/pexels-photo-3760269.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'Clinical researcher investigating therapeutic applications of soil-derived bacteria.'
-    }
-  ];
 
   const [contactForm, setContactForm] = useState({
     firstName: '',
@@ -88,62 +39,115 @@ const About: React.FC = () => {
     }
   };
 
-  const faqs = [
+  // Define FAQ type
+  type FAQ = {
+    question: string;
+    answer: string;
+    isOpen?: boolean;
+  };
+
+  const [faqs, setFaqs] = useState<FAQ[]>([
     {
       question: "What makes our research unique?",
-      answer: "Our research focuses on extracting beneficial bacteria from pristine soil environments, using cutting-edge biotechnology to develop sustainable solutions."
+      answer: "Our research focuses on extracting beneficial bacteria from pristine soil environments, using cutting-edge biotechnology to develop sustainable solutions.",
+      isOpen: false
     },
     {
       question: "How do we ensure quality?",
-      answer: "We maintain the highest standards of scientific rigor and environmental responsibility in all our research and development processes."
+      answer: "We maintain the highest standards of scientific rigor and environmental responsibility in all our research and development processes.",
+      isOpen: false
     },
     {
       question: "What industries do we serve?",
-      answer: "Our research has applications across agriculture, industrial biotechnology, environmental remediation, and human health sectors."
+      answer: "Our research has applications across agriculture, industrial biotechnology, environmental remediation, and human health sectors.",
+      isOpen: false
     },
     {
       question: "How can I get involved?",
-      answer: "We welcome collaborations with researchers, industry partners, and institutions. Contact us to discuss potential partnerships."
+      answer: "We welcome collaborations with researchers, industry partners, and institutions. Contact us to discuss potential partnerships.",
+      isOpen: false
     }
-  ];
+  ]);
 
   return (
     <div className="pt-32 px-4">
       {/* First Section - Two Columns */}
       <section className="max-w-7xl mx-auto py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Column - Typewriter Text and Image */}
+          {/* Left Column - Animated Heading and Image */}
           <div>
-            <h1 className="text-4xl font-bold mb-8">
-              <TypewriterText 
-                words={["Innovation", "Discovery", "Excellence", "Progress"]} 
-                prefix="Advancing " 
-                suffix=" Through Science"
-              />
-            </h1>
+            <motion.h1 
+              className="text-5xl font-bold mb-8 text-[var(--color-brown)]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ 
+                opacity: 1, 
+                y: 0,
+                transition: {
+                  duration: 0.8,
+                  ease: [0.6, -0.05, 0.01, 0.99]
+                }
+              }}
+            >
+              About Us
+            </motion.h1>
             <div className="mt-8">
               <img 
-                src="https://images.pexels.com/photos/3735745/pexels-photo-3735745.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Scientific Research"
-                className="w-full rounded-lg shadow-lg"
+                src="/images/soil-research-analysis.jpg"
+                alt="Soil research and analysis"
+                className="w-full h-auto max-h-[300px] object-cover rounded-lg shadow-lg"
               />
             </div>
           </div>
           
-          {/* Right Column - Subheading, Description, and FAQs */}
+          {/* Right Column - FAQ Section */}
           <div>
-            <h2 className="text-3xl font-bold mb-6">About Our Research</h2>
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              At BlueWave Zone, we're pioneering the next generation of microbial solutions. 
-              Our team of dedicated scientists is unlocking the potential of soil bacteria to 
-              address global challenges in agriculture, industry, and healthcare.
+            <motion.h2 
+              className="text-3xl font-bold mb-4 text-[var(--color-brown)]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ 
+                opacity: 1, 
+                y: 0,
+                transition: {
+                  duration: 0.8,
+                  delay: 0.2
+                }
+              }}
+            >
+              Our Purpose
+            </motion.h2>
+            <p className="text-lg text-gray-700 mb-6">
+              Blue Wave Zone is committed to extract beneficial bacteria from the rhizosphere of pure soil to foster innovative practices in agriculture, drive sustainability in industry, and facilitate breakthroughs in medical sciences.
             </p>
-            
-            <div className="space-y-6">
+            <div className="space-y-2">
               {faqs.map((faq, index) => (
-                <div key={index} className="border-l-4 border-teal-500 pl-4 py-2">
-                  <h3 className="font-semibold text-lg">{faq.question}</h3>
-                  <p className="text-gray-600 mt-1">{faq.answer}</p>
+                <div key={index} className="border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-md">
+                  <button 
+                    className="flex justify-between items-center w-full text-left p-4 focus:outline-none"
+                    onClick={() => {
+                      const updatedFaqs = [...faqs];
+                      updatedFaqs[index] = { ...faq, isOpen: !faq.isOpen };
+                      setFaqs(updatedFaqs);
+                    }}
+                    aria-expanded={faq.isOpen}
+                  >
+                    <span className="font-medium text-gray-800">{faq.question}</span>
+                    <span className={`transform transition-transform duration-300 text-teal-600 ${faq.isOpen ? 'rotate-180' : ''}`}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 9L12 16L5 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </button>
+                  <div 
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${faq.isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                    style={{
+                      transitionProperty: 'max-height, opacity',
+                      willChange: 'max-height, opacity'
+                    }}
+                  >
+                    <div className="px-4 pb-4 pt-1 text-gray-600">
+                      {faq.answer}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -283,184 +287,7 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="section">
-        <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4"
-                     style={{ backgroundColor: 'var(--color-teal)', color: 'white' }}>
-                  <value.icon className="h-8 w-8" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Team Section */}
-      <section className="section section-alt">
-        <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg p-6 text-center">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-teal-200"
-                />
-                <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                <p className="text-teal-700 font-medium mb-2">{member.role}</p>
-                <p className="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Mission Section */}
-      <section className="section section-alt">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
-              <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                At BlueWave Zone, we believe that the microscopic world holds the key to solving some 
-                of humanity's greatest challenges. Our mission is to unlock the potential of soil bacteria 
-                to create sustainable solutions that benefit agriculture, industry, and human health.
-              </p>
-              <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Through rigorous scientific research and innovative biotechnology, we extract and 
-                characterize beneficial bacteria from pristine soil environments. Our work focuses on 
-                understanding the complex relationships between bacteria and their hosts, developing 
-                practical applications that can be scaled for real-world impact.
-              </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                We are committed to advancing scientific knowledge while maintaining the highest 
-                standards of environmental responsibility and ethical research practices.
-              </p>
-            </div>
-            <div>
-              <img 
-                src="https://images.pexels.com/photos/3735745/pexels-photo-3735745.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Laboratory research"
-                className="w-full rounded-xl shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="section">
-        <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4"
-                     style={{ backgroundColor: 'var(--color-teal)', color: 'white' }}>
-                  <value.icon className="h-8 w-8" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="section section-alt">
-        <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <div key={index} className="card text-center">
-                <img 
-                  src={member.image}
-                  alt={member.name}
-                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-                />
-                <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                <p className="text-teal-600 font-medium mb-3">{member.role}</p>
-                <p className="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Research Focus */}
-      <section className="section">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8">Research Focus Areas</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center"
-                     style={{ backgroundColor: 'var(--color-teal)' + '20' }}>
-                  <span className="text-2xl">🌱</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Agriculture</h3>
-                <p className="text-gray-600">
-                  Developing bioinoculants that enhance crop productivity, improve soil health, 
-                  and reduce the need for chemical fertilizers.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center"
-                     style={{ backgroundColor: 'var(--color-brown)' + '20' }}>
-                  <span className="text-2xl">⚙️</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Industry</h3>
-                <p className="text-gray-600">
-                  Creating bacterial solutions for bioremediation, waste treatment, and 
-                  sustainable manufacturing processes.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center"
-                     style={{ backgroundColor: 'var(--color-deep-blue)' + '20' }}>
-                  <span className="text-2xl">🏥</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Medicine</h3>
-                <p className="text-gray-600">
-                  Investigating therapeutic bacteria for gut health, immune support, 
-                  and novel treatment approaches.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Location */}
-      <section className="section section-alt">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Our Location</h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              BlueWave Zone is located in Atlantis, Western Cape, South Africa, where we have 
-              access to diverse soil environments and a rich ecosystem for bacterial research. 
-              Our facility combines state-of-the-art laboratory equipment with field research 
-              capabilities.
-            </p>
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
-              <div className="space-y-2 text-gray-600">
-                <p><strong>Address:</strong> 14 Neil Hare Road, Atlantis, Western Cape, South Africa</p>
-                <p><strong>Email:</strong> hello@bluewavezone.co.za</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

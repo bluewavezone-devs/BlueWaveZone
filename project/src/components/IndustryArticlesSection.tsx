@@ -3,20 +3,20 @@ import React from 'react';
 const industryArticles = [
   {
     title: 'The Role of Beneficial Bacteria in Industry',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
-    image: 'https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder',
+    excerpt: 'Explore how beneficial bacteria are revolutionizing industrial processes, from waste management to sustainable production. Our solutions leverage nature\'s own mechanisms to create more efficient and environmentally friendly industrial applications.',
+    image: '/images/industrial-bacteria-application.jpg',
     href: '#',
   },
   {
     title: 'WASTE NOT WANT NOT: Application in Human Waste Management',
-    excerpt: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    image: 'https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder',
+    excerpt: 'Discover innovative approaches to human waste management using specialized bacterial formulations that break down organic matter efficiently while minimizing environmental impact and reducing harmful byproducts.',
+    image: '/images/organic-waste-management-bacteria.jpg',
     href: '#',
   },
   {
     title: 'Industry and FOG Pollution',
-    excerpt: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-    image: 'https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder',
+    excerpt: 'Learn about our cutting-edge solutions for Fats, Oils, and Grease (FOG) pollution in industrial settings, where specialized bacterial consortia effectively degrade complex organic compounds in wastewater systems.',
+    image: '/images/industrial-wastewater-treatment-bacteria.jpg',
     href: '#',
   },
 ];
@@ -43,8 +43,8 @@ const IndustryArticlesSection: React.FC = () => (
             <div className="relative overflow-hidden h-56">
               <img 
                 src={article.image} 
-                alt={article.title} 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                alt={article.title}
+                className="w-full h-48 object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <span className="inline-block px-3 py-1 text-sm font-medium bg-[var(--color-teal)] text-white rounded-full">

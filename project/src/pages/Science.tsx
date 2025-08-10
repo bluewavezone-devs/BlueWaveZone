@@ -76,58 +76,31 @@ const Science: React.FC = () => {
     // First section - two columns with one FAQ each
     [
       {
-        question: "What makes Blue Wave Zone's bacterial strains unique?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        image: "https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder",
-        alt: "Placeholder"
+        question: "Challenges and Future Directions",
+        answer: "Despite significant progress in the field, there are ongoing challenges. Future research focuses on fine-tuning bacterial strains to suit particular environments and creating stronger formulations for a range of uses. The extraction and use of beneficial bacteria from untouched soil mark a notable advance in agriculture, industry, and medicine. Thirty years of research and development have established a base for ongoing innovation in applying soil-sourced microbiota for diverse beneficial purposes.",
+        image: "/images/sustainable-agriculture-plant-growth-3.jpg",
+        alt: "Challenges and Future Directions"
       },
       {
-        question: "Lorem ipsum dolor sit amet consectetur?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-        image: "https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder",
-        alt: "Placeholder"
+        question: "Development and Improvements",
+        answer: "The methodologies initially developed in Modena have undergone continual refinement. Advances in molecular biology and genomics have been particularly influential, allowing for more precise identification and modification of bacterial strains. Additionally, improvements in fermentation technology and bioreactor design have enhanced the mass production of these bacteria.",
+        image: "/images/beneficial-bacteria-microscope-2.jpg",
+        alt: "Development and Improvements"
       }
     ],
-    // Second section - two columns with one FAQ each
+    // Second section - Beneficial Bacteria Overview
     [
       {
-        question: "Ut enim ad minim veniam, quis nostrud?",
-        answer: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        image: "https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder",
-        alt: "Placeholder"
+        question: "An Overview",
+        answer: "Beneficial bacteria play a crucial role in agriculture, offering an array of advantages. These microorganisms can enhance nutrient uptake, promote plant growth, and confer disease resistance. Key genera such as Rhizobium, Azospirillum, and Bacillus have been at the forefront in facilitating nitrogen fixation, phytohormone production, and pathogen suppression respectively. Their role in promoting a balanced ecosystem, thereby enabling plants to thrive in various environmental conditions, is essential.",
+        image: "/images/beneficial-bacteria-microscope-1.jpg",
+        alt: "Beneficial Bacteria Overview"
       },
       {
-        question: "Sed ut perspiciatis unde omnis iste natus?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-        image: "https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder",
-        alt: "Placeholder"
-      }
-    ],
-    // Third section - two columns with one FAQ each
-    [
-      {
-        question: "Duis aute irure dolor in reprehenderit?",
-        answer: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-        image: "https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder",
-        alt: "Placeholder"
-      },
-      {
-        question: "Nemo enim ipsam voluptatem quia voluptas?",
-        answer: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
-        image: "https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder",
-        alt: "Placeholder"
-      },
-      {
-        question: "What role do your bacterial solutions play in environmental remediation?",
-        answer: "Our specialized bacterial strains are used in bioremediation to break down pollutants, clean contaminated sites, and restore ecosystems. They can degrade oil spills, heavy metals, and other hazardous substances, offering an eco-friendly alternative to traditional cleanup methods.",
-        image: "https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder",
-        alt: "Placeholder"
-      },
-      {
-        question: "What can Blue Wave Zone's bacterial solutions do for sustainable agriculture?",
-        answer: "Our bacterial solutions enhance soil health, improve plant growth, and reduce the need for chemical fertilizers and pesticides. They help create more sustainable agricultural systems by promoting natural processes, increasing crop yields, and reducing environmental impact.",
-        image: "https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder",
-        alt: "Placeholder"
+        question: "Beneficial Bacteria in Agriculture",
+        answer: "Our company is characterized by its commitment to environmentally friendly agricultural practices, focusing on biological over chemical solutions. Integrating beneficial bacteria into this paradigm offers a multifaceted approach to sustainable farming. This integration not only supports crop health and productivity but also aligns with organic farming principles, minimizes environmental impact, and fosters resilience against climate change.",
+        image: "/images/organic-fertilizer-testing-lab.png",
+        alt: "Agriculture Application"
       }
     ]
   ];
@@ -159,12 +132,12 @@ const Science: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] }}
           >
-            Beneficial Bacteria <span style={{ color: 'var(--color-teal)' }}>OUR</span> Ongoing Quest
+            Beneficial Bacteria <span style={{ color: 'var(--color-teal)' }}>OUR Ongoing Quest</span>
           </motion.h1>
         </motion.div>
         
         <motion.div 
-          className="flex justify-center gap-3 mt-2 mb-8"
+          className="flex justify-start gap-3 mt-0 -ml-4 mb-8"
           variants={{
             hidden: { opacity: 0 },
             show: {
@@ -179,21 +152,23 @@ const Science: React.FC = () => {
           <motion.div 
             variants={underline}
             style={{ 
-              width: 300, 
-              height: 6, 
+              width: 302, 
+              height: 4, 
               background: 'var(--color-teal)', 
-              borderRadius: 3,
+              borderRadius: 2,
               transformOrigin: 'left center',
+              marginLeft: 15,
             }} 
           />
           <motion.div 
             variants={underline}
             style={{ 
-              width: 300, 
-              height: 6, 
+              width: 262, 
+              height: 4, 
               background: 'var(--color-deep-blue)', 
-              borderRadius: 3,
+              borderRadius: 2,
               transformOrigin: 'right center',
+              marginRight: 3.5,
             }} 
           />
         </motion.div>
@@ -240,9 +215,29 @@ const Science: React.FC = () => {
         <hr className="border-t border-[#3A3A3A] my-8" />
         
         <div className="text-center mb-8">
-          <div className="text-2xl text-[#3A3A3A] mb-4">
-            The Science <TypewriterText words={["is a next"]} prefix="" suffix="" /> solution.
-          </div>
+          <motion.div 
+            className="text-2xl text-[#3A3A3A] mb-8 pb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ 
+              opacity: 1, 
+              y: 0,
+              transition: {
+                delay: 1.4,
+                duration: 0.6
+              }
+            }}
+            style={{
+              paddingBottom: '1.5rem'  // Adds 24px of padding at the bottom
+            }}
+          >
+            The Science is a{' '}
+            <TypewriterText 
+              words={["next level", "innovative", "soil healing"]}
+              prefix=""
+              suffix=""
+            />{' '}
+            solution.
+          </motion.div>
           
           <h2 className="text-3xl font-bold text-[#3A3A3A] mb-6">
             Extracting Beneficial Bacteria from Pure Soil
@@ -262,72 +257,69 @@ const Science: React.FC = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         <h2 className="text-3xl font-bold text-center text-[#3A3A3A] mb-12">Methodology</h2>
         <p className="text-center text-lg text-[#3A3A3A] mb-12 max-w-4xl mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Blue Wave Zone's methodology entails several key processes:
         </p>
         
         <div className="relative w-full flex flex-col md:flex-row h-[500px] md:h-[600px] overflow-hidden rounded-lg shadow-lg">
-          {/* Sample 1 */}
+          {/* Sample 1 - Sampling and Isolation */}
           <div className="relative h-full flex-1 overflow-hidden transition-all duration-700 group">
             <div className="absolute inset-0 z-0">
               <img 
-                src="https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder" 
-                alt="Placeholder"
-                className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-105 rounded-lg shadow-xl border-4 border-white"
-                style={{
-                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-                }}
+                src="/images/soil-testing-laboratory.jpg" 
+                alt="Soil testing and sampling"
+                className="w-full h-full object-cover rounded-lg transform transition-all duration-700 group-hover:scale-105"
               />
             </div>
             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-500 flex items-center justify-center p-6 z-10">
-              <div className="text-white text-center transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500">
-                <h3 className="text-2xl font-bold mb-4">Lorem Ipsum</h3>
-                <p className="max-w-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <div className="text-white text-left transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 p-6">
+                <h3 className="text-2xl font-bold mb-4">Sampling and Isolation</h3>
+                <p className="max-w-md">
+                  Pure soil is sampled using sterile techniques to avoid contamination. The isolation of bacteria is achieved through selective culturing methods, tailored to enrich desired microbial species.
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Sample 2 */}
+          {/* Sample 2 - Sequencing and Characterization */}
           <div className="relative h-full flex-1 overflow-hidden transition-all duration-700 group border-l-2 border-white">
             <div className="absolute inset-0 z-0">
               <img 
-                src="https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder" 
-                alt="Placeholder"
-                className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-105 rounded-lg shadow-xl border-4 border-white"
-                style={{
-                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-                }}
+                src="/images/beneficial-bacteria-research.jpg" 
+                alt="Bacteria characterization"
+                className="w-full h-full object-cover rounded-lg transform transition-all duration-700 group-hover:scale-105"
               />
             </div>
             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-500 flex items-center justify-center p-6 z-10">
-              <div className="text-white text-center transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500">
-                <h3 className="text-2xl font-bold mb-4">Dolor Sit Amet</h3>
-                <p className="max-w-md">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <div className="text-white text-left transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 p-6">
+                <h3 className="text-2xl font-bold mb-4">Sequencing and Characterization</h3>
+                <p className="max-w-md">
+                  The isolated bacteria undergo various processes, enabling the identification of beneficial traits. These may include nitrogen fixation in plants, degradation of toxic compounds in industrial settings, or antimicrobial properties useful in medicine.
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Sample 3 */}
+          {/* Sample 3 - Application Development */}
           <div className="relative h-full flex-1 overflow-hidden transition-all duration-700 group border-l-2 border-white">
             <div className="absolute inset-0 z-0">
               <img 
-                src="https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder" 
-                alt="Placeholder"
-                className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-105 rounded-lg shadow-xl border-4 border-white"
-                style={{
-                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-                }}
+                src="/images/sustainable-agriculture-plant-growth-2.jpg" 
+                alt="Application development in agriculture"
+                className="w-full h-full object-cover rounded-lg transform transition-all duration-700 group-hover:scale-105"
               />
             </div>
             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-500 flex items-center justify-center p-6 z-10">
-              <div className="text-white text-center transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500">
-                <h3 className="text-2xl font-bold mb-4">Consectetur Adipiscing</h3>
-                <p className="max-w-md">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              <div className="text-white text-left transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 p-6">
+                <h3 className="text-2xl font-bold mb-4">Application Development</h3>
+                <p className="max-w-md">
+                  Based on the functional traits of the bacteria, specific applications are developed for our customers. In agriculture, this might involve biofertilizers or growth enhancers. Industrial applications can include bioremediation agents, while in medicine, the focus is on developing probiotics or novel antibiotics.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      </section>
+    </section>
 
       {/* Horizontal Line */}
       <div className="container mx-auto px-4 max-w-4xl">
@@ -336,7 +328,7 @@ const Science: React.FC = () => {
 
       {/* FAQ Sections */}
       {faqData.map((section, sectionIndex) => (
-        <section key={sectionIndex} className={`py-16 ${sectionIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+        <section key={sectionIndex} className="py-16 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
             {sectionIndex > 0 && (
               <h2 className="text-3xl font-bold text-center text-[#3A3A3A] mb-12">
@@ -359,7 +351,7 @@ const Science: React.FC = () => {
                     <img 
                       src={item.image}
                       alt={item.alt}
-                      className="w-full h-96 object-cover border-4 border-white"
+                      className="w-full h-96 object-cover rounded-lg border-4 border-white"
                       style={{
                         boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
                       }}
@@ -378,17 +370,25 @@ const Science: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Left Column */}
             <div>
-              <div className="text-2xl text-[#3A3A3A] mb-4">
-                <TypewriterText words={["Innovation in Action"]} prefix="" suffix="" />
+              <div className="space-y-6 mb-8">
+                <div className="text-2xl font-medium text-[#3A3A3A]">
+                  The Industrial{' '}
+                  <TypewriterText 
+                    words={["innovation", "nurturing", "remediation"]} 
+                    prefix="" 
+                    suffix="" 
+                  />
+                  {' '}works.
+                </div>
+                <p className="text-2xl font-bold text-[#3A3A3A] mt-8">
+                  Utilization of beneficial bacteria to bolster agricultural production
+                </p>
               </div>
-              <h3 className="text-2xl font-bold text-[#3A3A3A] mb-6">
-                Utilization of beneficial bacteria to bolster agricultural production
-              </h3>
               <div className="rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                 <img 
-                  src="https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder" 
-                  alt="Beneficial bacteria in agriculture"
-                  className="w-full h-96 object-cover border-4 border-white"
+                  src="/images/industrial-bacteria-application.jpg" 
+                  alt="Industrial applications of beneficial bacteria"
+                  className="w-full h-96 object-cover rounded-lg border-4 border-white"
                   style={{
                     boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
                   }}
@@ -399,22 +399,26 @@ const Science: React.FC = () => {
             {/* Right Column */}
             <div>
               <p className="text-lg text-[#3A3A3A] leading-relaxed mb-8">
-                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                The extension of the Blue Wave Zone's biotechnological strategies to industrial processes, especially in the treatment of FOG pollution, marks a new era in industrial waste management. This paper outlines the beneficial role of specific bacteria in degrading complex organic compounds and improving the efficiency and sustainability of industrial and sewage treatment processes.
               </p>
               
               {/* FAQ Items */}
               <div className="space-y-6">
                 <FAQItem 
-                  question="At vero eos et accusamus et iusto odio dignissimos?"
-                  answer="Ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."
+                  question="The Role of Beneficial Bacteria in Industrial Waste Management"
+                  answer="Beneficial bacteria, particularly those adept at breaking down organic compounds like fats, oils, and grease, offer a natural and effective solution for managing industrial waste. These microorganisms, such as species of Pseudomonas, Bacillus, and Lactobacillus, are capable of enzymatic degradation of complex FOG compounds, transforming them into simpler, non-polluting forms."
                 />
                 <FAQItem 
-                  question="Similique sunt in culpa qui officia deserunt mollitia?"
-                  answer="Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus."
+                  question="Application in Sewage Treatment Plants"
+                  answer="In sewage treatment plants, the introduction of specific strains of beneficial bacteria from the Blue Wave Zone can significantly optimize the degradation process of organic waste. These bacteria accelerate the breakdown of FOG components, reducing sludge volume, minimizing foul odors, and enhancing overall treatment efficiency. Their ability to operate under varying environmental conditions makes them highly adaptable and efficient in wastewater management."
                 />
                 <FAQItem 
-                  question="Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus?"
-                  answer="Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+                  question="Industrial Processes and FOG Pollution Remediation"
+                  answer="Industries dealing with high volumes of FOG can benefit substantially from adopting these biotechnological solutions. For example, in the food processing and dairy industries, where FOG waste is prevalent, the use of these beneficial bacteria can not only aid in waste treatment but also in maintaining pipeline and drainage systems, preventing blockages, and mitigating the risk of environmental contamination."
+                />
+                <FAQItem 
+                  question="Future Directions"
+                  answer="We are developing robust consortia of bacteria that can withstand varied industrial conditions, and creating sustainable, cost-effective deployment strategies. The application of beneficial bacteria from the Blue Wave Zone in industrial settings, particularly for FOG pollution remediation, opens up new pathways for sustainable industrial waste management. This approach not only aligns with environmental stewardship but also offers practical, efficient solutions for industries grappling with waste management challenges."
                 />
               </div>
             </div>

@@ -2,38 +2,41 @@ import React from 'react';
 
 const agricultureArticles = [
   {
-    title: 'Microbes Boosting Crop Yields',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    image: 'https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder',
+    title: 'The Organic Transition',
+    excerpt: 'As the global demand for organic produce escalates, farmers are increasingly interested in transitioning from conventional to organic agriculture. This shift requires innovative approaches to maintain productivity while meeting organic certification standards.',
+    image: '/images/soil-testing-laboratory.jpg',
     href: '#',
   },
   {
-    title: 'Sustainable Farming Practices',
-    excerpt: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    image: 'https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder',
+    title: 'Bacterial Consortia in Agriculture',
+    excerpt: 'In the quest to address the multifaceted challenges besieging modern agriculture, the strategic deployment of beneficial bacterial consortia emerges as a game-changing solution. These microbial communities work synergistically to enhance soil fertility and plant health.',
+    image: '/images/organic-fertilizer-testing-lab.png',
     href: '#',
   },
   {
-    title: 'Soil Health Revolution',
-    excerpt: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    image: 'https://placehold.co/800x600/4a7c59/ffffff?text=Placeholder',
+    title: 'Agriculture at a Crossroads',
+    excerpt: 'Agriculture today stands at a critical juncture, confronted by a confluence of escalating challenges that threaten global food security and environmental sustainability. Innovative solutions are needed to ensure a resilient and productive agricultural future.',
+    image: '/images/agricultural-research-field.jpg',
     href: '#',
   },
 ];
 
 const AgricultureArticlesSection: React.FC = () => {
-  const backgroundImage = 'https://placehold.co/1920x1080/4a7c59/ffffff?text=Background+Placeholder';
-  
   return (
     <section className="relative py-24 md:py-32 overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(${backgroundImage})`,
-          backgroundAttachment: 'fixed'
-        }}
-      >
+      {/* Background Video with Overlay */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/background-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-black/60"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-brown)]/30 to-[var(--color-deep-blue)]/30"></div>
       </div>
       
