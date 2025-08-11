@@ -1,23 +1,81 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const industryArticles = [
   {
     title: 'The Role of Beneficial Bacteria in Industry',
     excerpt: 'Explore how beneficial bacteria are revolutionizing industrial processes, from waste management to sustainable production. Our solutions leverage nature\'s own mechanisms to create more efficient and environmentally friendly industrial applications.',
     image: '/images/industrial-bacteria-application.jpg',
-    href: '#',
+    slug: 'industrial-bacteria-applications',
+    category: 'Industry',
+    date: '2025-02-15',
+    author: {
+      name: 'BlueWave Research Team',
+      avatar: '/images/logo.png',
+      bio: 'Experts in industrial microbiology applications'
+    },
+    content: (
+      <div>
+        <p>Industrial applications of beneficial bacteria are transforming how we approach manufacturing, waste management, and environmental remediation. These microorganisms offer sustainable solutions to some of industry's most pressing challenges.</p>
+        <h2>Key Industrial Applications</h2>
+        <ul>
+          <li>Wastewater treatment and purification</li>
+          <li>Bioremediation of contaminated sites</li>
+          <li>Bio-based manufacturing processes</li>
+          <li>Waste reduction and resource recovery</li>
+        </ul>
+      </div>
+    )
   },
   {
     title: 'WASTE NOT WANT NOT: Application in Human Waste Management',
     excerpt: 'Discover innovative approaches to human waste management using specialized bacterial formulations that break down organic matter efficiently while minimizing environmental impact and reducing harmful byproducts.',
     image: '/images/organic-waste-management-bacteria.jpg',
-    href: '#',
+    slug: 'waste-management-solutions',
+    category: 'Waste Management',
+    date: '2025-02-10',
+    author: {
+      name: 'BlueWave Research Team',
+      avatar: '/images/logo.png',
+      bio: 'Pioneers in sustainable waste solutions'
+    },
+    content: (
+      <div>
+        <p>Our bacterial solutions for human waste management are setting new standards for efficiency and environmental responsibility in sanitation systems worldwide.</p>
+        <h2>Benefits of Our Approach</h2>
+        <ul>
+          <li>90% reduction in sludge volume</li>
+          <li>Elimination of foul odors</li>
+          <li>Pathogen reduction</li>
+          <li>Production of nutrient-rich byproducts</li>
+        </ul>
+      </div>
+    )
   },
   {
     title: 'Industry and FOG Pollution',
     excerpt: 'Learn about our cutting-edge solutions for Fats, Oils, and Grease (FOG) pollution in industrial settings, where specialized bacterial consortia effectively degrade complex organic compounds in wastewater systems.',
     image: '/images/industrial-wastewater-treatment-bacteria.jpg',
-    href: '#',
+    href: '/article/fog-pollution-solutions',
+    category: 'Pollution Control',
+    date: '2025-02-05',
+    author: {
+      name: 'BlueWave Research Team',
+      avatar: '/images/logo.png',
+      bio: 'Leaders in industrial pollution mitigation'
+    },
+    content: (
+      <div>
+        <p>Our specialized bacterial formulations target FOG (Fats, Oils, and Grease) in industrial wastewater, breaking down these challenging pollutants into harmless byproducts.</p>
+        <h2>Our FOG Treatment Process</h2>
+        <ol>
+          <li>Initial assessment of FOG contamination</li>
+          <li>Custom bacterial consortium selection</li>
+          <li>Application and monitoring</li>
+          <li>Performance verification and optimization</li>
+        </ol>
+      </div>
+    )
   },
 ];
 
@@ -60,9 +118,10 @@ const IndustryArticlesSection: React.FC = () => (
               <p className="mb-5 text-gray-600 flex-1 leading-relaxed">
                 {article.excerpt}
               </p>
-              <a 
-                href={article.href} 
-                className="inline-flex items-center text-[var(--color-teal)] font-medium hover:text-[var(--color-deep-blue)] transition-colors group mt-auto"
+              <Link 
+                to={`/articles/${article.slug}`}
+                className="inline-flex items-center text-[var(--color-teal)] font-medium hover:text-[var(--color-deep-blue)] transition-colors group mt-auto relative"
+                aria-label={`Read more about ${article.title}`}
               >
                 Read Full Article
                 <svg 
@@ -74,7 +133,7 @@ const IndustryArticlesSection: React.FC = () => (
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         ))}

@@ -1,23 +1,31 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const agricultureArticles = [
+interface Article {
+  title: string;
+  excerpt: string;
+  image: string;
+  slug: string;
+}
+
+const agricultureArticles: Article[] = [
   {
     title: 'The Organic Transition',
     excerpt: 'As the global demand for organic produce escalates, farmers are increasingly interested in transitioning from conventional to organic agriculture. This shift requires innovative approaches to maintain productivity while meeting organic certification standards.',
     image: '/images/soil-testing-laboratory.jpg',
-    href: '#',
+    slug: 'the-organic-transition',
   },
   {
     title: 'Bacterial Consortia in Agriculture',
     excerpt: 'In the quest to address the multifaceted challenges besieging modern agriculture, the strategic deployment of beneficial bacterial consortia emerges as a game-changing solution. These microbial communities work synergistically to enhance soil fertility and plant health.',
     image: '/images/organic-fertilizer-testing-lab.png',
-    href: '#',
+    slug: 'bacterial-consortia-in-agriculture',
   },
   {
     title: 'Agriculture at a Crossroads',
     excerpt: 'Agriculture today stands at a critical juncture, confronted by a confluence of escalating challenges that threaten global food security and environmental sustainability. Innovative solutions are needed to ensure a resilient and productive agricultural future.',
     image: '/images/agricultural-research-field.jpg',
-    href: '#',
+    slug: 'agriculture-at-crossroads',
   },
 ];
 
@@ -78,9 +86,9 @@ const AgricultureArticlesSection: React.FC = () => {
                 <p className="text-gray-600 mb-4">
                   {article.excerpt}
                 </p>
-                <a 
-                  href={article.href} 
-                  className="inline-flex items-center text-[var(--color-teal)] font-medium hover:text-[var(--color-deep-blue)] transition-colors"
+                <Link
+                  to={`/articles/${article.slug}`}
+                  className="inline-flex items-center text-[var(--color-teal)] font-medium hover:text-[var(--color-deep-blue)] transition-colors group mt-4"
                 >
                   Learn more
                   <svg 
@@ -92,7 +100,7 @@ const AgricultureArticlesSection: React.FC = () => {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           ))}

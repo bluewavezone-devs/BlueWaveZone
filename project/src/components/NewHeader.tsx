@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Search, Clock, FileText } from 'lucide-react';
-import logo from '../public/images/logo.png';
+import logo from '/images/logo.png';
 import { searchContent, type SearchResult } from '../services/searchService';
 
 const NewHeader = () => {
@@ -292,29 +292,48 @@ const NewHeader = () => {
                                 selectedResultIndex === index ? 'bg-gray-50' : ''
                               } ${result.type === 'message' ? 'bg-yellow-50' : ''}`}
                             >
-                              <div className="flex items-start">
-                                {result.type !== 'message' && (
+                              <div className="flex items-start space-x-3">
+                                {result.type !== 'message' && result.image ? (
+                                  <div className="flex-shrink-0 w-12 h-12 rounded-md overflow-hidden bg-gray-100">
+                                    <img 
+                                      src={result.image} 
+                                      alt={result.title}
+                                      className="w-full h-full object-cover"
+                                    />
+                                  </div>
+                                ) : (
                                   <div className="flex-shrink-0 mt-0.5">
                                     <FileText className="h-5 w-5 text-teal-500" />
                                   </div>
                                 )}
-                                <div className={result.type !== 'message' ? 'ml-3' : ''}>
-                                  <h4 className={`text-sm font-medium ${
-                                    result.type === 'message' ? 'text-yellow-800' : 'text-gray-900'
-                                  } line-clamp-1`}>
-                                    {result.title}
-                                  </h4>
-                                  {result.category && (
-                                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800 mt-1">
-                                      {result.category}
-                                    </span>
-                                  )}
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex justify-between items-start">
+                                    <h3 className={`text-sm font-medium ${
+                                      result.type === 'message' ? 'text-yellow-700' : 'text-gray-900'}
+                                      line-clamp-1`}>
+                                      {result.title}
+                                    </h3>
+                                    {result.category && !result.isComingSoon && (
+                                      <span className="ml-2 px-2 py-0.5 bg-teal-100 text-teal-800 text-xs rounded-full whitespace-nowrap">
+                                        {result.category}
+                                      </span>
+                                    )}
+                                  </div>
                                   {result.excerpt && (
-                                    <p className={`text-sm mt-1 line-clamp-2 ${
-                                      result.type === 'message' ? 'text-yellow-700' : 'text-gray-500'
-                                    }`}>
+                                    <p className="text-sm text-gray-500 mt-1 line-clamp-2">
                                       {result.excerpt}
                                     </p>
+                                  )}
+                                  {result.date && !result.isComingSoon && (
+                                    <div className="mt-1 flex items-center text-xs text-gray-400">
+                                      <Clock className="h-3 w-3 mr-1 flex-shrink-0" />
+                                      <span>{new Date(result.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                                    </div>
+                                  )}
+                                  {result.isComingSoon && (
+                                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 mt-1">
+                                      Coming Soon
+                                    </span>
                                   )}
                                 </div>
                               </div>

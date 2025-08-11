@@ -8,7 +8,7 @@ interface ArticleCardProps {
   date: string;
   category: string;
   image?: string;
-  href: string;
+  slug: string;
 }
 
 const ArticleCard: React.FC<ArticleCardProps> = ({ 
@@ -17,10 +17,10 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   date, 
   category, 
   image,
-  href 
+  slug 
 }) => {
   return (
-    <Link to={`/articles/${href}`} className="block group">
+    <Link to={`/articles/${slug}`} className="block group">
       <article className="card cursor-pointer">
       {image && (
         <div className="mb-4 overflow-hidden rounded-lg">

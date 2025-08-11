@@ -1,3 +1,5 @@
+import { articlePosts, ArticlePost } from '../pages/Article';
+
 // Search service interface
 export interface SearchResult {
   id: string;
@@ -7,22 +9,24 @@ export interface SearchResult {
   type: 'article' | 'page' | 'message';
   category?: string;
   date?: string;
+  image?: string;
   isComingSoon?: boolean;
 }
 
-// Mock articles data - matching the actual articles from Article.tsx
-const mockArticles = [
-  {
-    id: '1',
-    title: 'The Hidden World of Rhizosphere Bacteria',
-    excerpt: 'Exploring the complex ecosystem of bacteria that live around plant roots and their crucial role in plant health and soil fertility.',
-    slug: 'rhizosphere-bacteria',
-    type: 'article' as const,
-    category: 'Rhizosphere',
-    date: '2025-01-10'
-  }
-  // Add more articles here as they are created in the Article.tsx file
-];
+// Map article posts to search results
+const mapArticleToSearchResult = (article: ArticlePost): SearchResult => ({
+  id: article.slug,
+  title: article.title,
+  excerpt: article.excerpt,
+  slug: article.slug,
+  type: 'article',
+  category: article.category,
+  date: article.date,
+  image: article.image
+});
+
+// Get all articles as search results
+const allArticles = articlePosts.map(mapArticleToSearchResult);
 
 export const searchContent = async (query: string): Promise<SearchResult[]> => {
   const trimmedQuery = query.trim();
@@ -44,14 +48,44 @@ export const searchContent = async (query: string): Promise<SearchResult[]> => {
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 300));
   
-  const lowerQuery = trimmedQuery.toLowerCase();
+  // Normalize the search query - remove special characters and convert to lowercase
+  const normalizeText = (text: string): string => {
+    return text
+      .toLowerCase()
+      .normalize('NFD') // Normalize diacritics
+      .replace(/[^\w\s-]/g, '') // Remove special characters except spaces and hyphens
+      .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+      .trim();
+  };
+
+  const normalizedQuery = normalizeText(trimmedQuery);
   
-  // Search in title, excerpt, and category
-  const results = mockArticles.filter(article => 
-    article.title.toLowerCase().includes(lowerQuery) ||
-    article.excerpt.toLowerCase().includes(lowerQuery) ||
-    (article.category && article.category.toLowerCase().includes(lowerQuery))
-  );
+  // Search in title, excerpt, and category with fuzzy matching
+  const results = allArticles.filter(article => {
+    const normalizedTitle = normalizeText(article.title);
+    const normalizedExcerpt = normalizeText(article.excerpt);
+    const normalizedCategory = article.category ? normalizeText(article.category) : '';
+    
+    // Check if any part of the query matches the beginning of words in the title/excerpt
+    const queryWords = normalizedQuery.split(' ');
+    
+    const matchesTitle = queryWords.every(word => 
+      normalizedTitle.includes(word) || 
+      article.title.toLowerCase().includes(word)
+    );
+    
+    const matchesExcerpt = queryWords.every(word => 
+      normalizedExcerpt.includes(word) || 
+      article.excerpt.toLowerCase().includes(word)
+    );
+    
+    const matchesCategory = article.category && queryWords.every(word =>
+      normalizedCategory.includes(word) ||
+      article.category!.toLowerCase().includes(word)
+    );
+    
+    return matchesTitle || matchesExcerpt || !!matchesCategory;
+  });
   
   if (results.length === 0) {
     return [{

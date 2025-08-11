@@ -8,8 +8,8 @@ import { articlePosts } from './Article';
 const ArticleView: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const article = articlePosts.find(post => post.href === slug);
-  const moreArticles = articlePosts.filter(post => post.href !== slug).slice(0, 4); // show 4 others
+  const article = articlePosts.find(post => post.slug === slug);
+  const moreArticles = articlePosts.filter(post => post.slug !== slug).slice(0, 4); // show 4 others
 
   if (!article) {
     return (

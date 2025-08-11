@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface Article {
   title: string;
   excerpt: string;
-  href: string;
+  slug: string;
   image: string;
 }
 
@@ -28,8 +29,8 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => (
     <div className="p-6 flex flex-col flex-1">
       <h3 className="text-xl font-semibold mb-3 text-[var(--color-deep-blue)] leading-tight">{article.title}</h3>
       <p className="mb-5 text-gray-600 flex-1 leading-relaxed">{article.excerpt}</p>
-      <a 
-        href={article.href} 
+      <Link 
+        to={`/articles/${article.slug}`}
         className="inline-flex items-center text-[var(--color-teal)] font-medium hover:text-[var(--color-deep-blue)] transition-colors group mt-auto"
       >
         Read More
@@ -42,7 +43,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => (
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
-      </a>
+      </Link>
     </div>
   </div>
 );
@@ -54,7 +55,7 @@ const categories: Category[] = [
       {
         title: 'Blue Wave Zone’s Approach to Beneficial Bacteria Extraction from Pure Soil',
         excerpt: 'The extraction and application of microorganisms from the rhizosphere of pure soil for beneficial purposes is a critical area of study in microbial biotechnology. Blue Wave Zone has been at the forefront of this field, focusing on the isolation of specific bacterial strains from unspoiled soil environments and supplying these components to our customers for further processing.',
-        href: '#',
+        slug: 'beneficial-bacteria-extraction',
         image: '/images/beneficial-bacteria-research.jpg',
       },
       {
@@ -66,7 +67,7 @@ const categories: Category[] = [
       {
         title: 'Discerning Beneficial from Pathogenic Bacteria',
         excerpt: 'The microbial world is a dichotomy of beneficial and pathogenic bacteria, each playing distinct roles in environmental ecosystems and human health. Beneficial bacteria, like probiotics, are essential for digestion, vitamin production, and immune support in humans, while also contributing to nutrient cycling and soil fertility in the environment. In contrast, pathogenic bacteria can cause disease in plants and animals, disrupting ecosystems and agriculture.',
-        href: '#',
+        slug: 'beneficial-vs-pathogenic-bacteria',
         image: '/images/beneficial-bacteria-microscope-2.jpg',
       },
     ],
@@ -77,19 +78,19 @@ const categories: Category[] = [
       {
         title: 'What is the rhizosphere and how can bacteria in the rhizosphere benefit mankind',
         excerpt: 'The rhizosphere, a term first coined in 1904 by Lorenz Hiltner, is the narrow region of soil influenced by root secretions and associated soil microorganisms. It is a dynamic and intricate ecosystem vital for plant health and soil vitality, hosting a myriad of organisms, particularly beneficial bacteria. This zone is a hotbed for microbial activity, nutrient cycling, and ecological interactions, where plants and soil microorganisms engage in complex biological relationships.',
-        href: '#',
+        slug: 'what-is-rhizosphere',
         image: '/images/sustainable-agriculture-plant-growth-1.jpg',
       },
       {
         title: 'Why pure soil is important',
         excerpt: 'The purity of soil is critical for isolating beneficial rhizospheric bacteria. Untouched soil provides a balanced ecosystem where beneficial bacteria evolve in symbiosis with plant roots, free from contaminants like pesticides and pollutants. This ensures the safety and efficacy of extracted bacterial strains, making them reliable for research and commercial applications while maintaining sustainable soil health.',
-        href: '#',
+        slug: 'why-pure-soil-important',
         image: '/images/sustainable-agriculture-plant-growth-2.jpg',
       },
       {
         title: 'The Nature of the Rhizosphere: Unveiling the Microbial Nexus',
         excerpt: 'The rhizosphere, first described by Lorenz Hiltner in 1904, is a dynamic soil zone around plant roots rich in microbial life due to root exudates. This complex ecosystem features diverse microbial communities that differ significantly from bulk soil, with bacteria being the most responsive to root-derived compounds. These microorganisms form organized biofilms and microcolonies that interact closely with plant roots, influencing nutrient cycling, plant health, and soil fertility through intricate biochemical pathways and symbiotic relationships.',
-        href: '#',
+        slug: 'nature-of-rhizosphere',
         image: '/images/sustainable-agriculture-plant-growth-3.jpg',
       },
     ],
@@ -106,7 +107,7 @@ const categories: Category[] = [
       {
         title: 'Nobel prizes for bacteria research',
         excerpt: "The Nobel Prize in Physiology or Medicine has recognized groundbreaking bacterial research, including Barry Marshall and Robin Warren's 2005 award for discovering Helicobacter pylori's role in ulcers, Robert Koch's 1905 tuberculosis research, and Selman Waksman's 1952 prize for discovering streptomycin. These awards highlight how bacterial research has transformed medicine, from understanding disease causation to developing life-saving antibiotics.",
-        href: '#',
+        slug: 'nobel-prizes-bacteria-research',
         image: '/images/soil-research-analysis.jpg',
       },
       {
@@ -123,19 +124,19 @@ const categories: Category[] = [
       {
         title: 'The Role of Beneficial Bacteria in Industrial Waste Management',
         excerpt: 'Beneficial bacteria, particularly those adept at breaking down organic compounds like fats, oils, and grease, offer a natural and effective solution for managing industrial waste. These microorganisms, such as species of Pseudomonas, Bacillus, and Lactobacillus, are capable of enzymatic degradation of complex FOG compounds, transforming them into simpler, non-polluting forms...',
-        href: '#',
+        slug: 'bacteria-industrial-waste-management',
         image: '/images/industrial-wastewater-treatment-bacteria.jpg',
       },
       {
         title: 'Industry and FOG Pollution: The Peril of Industrial FOG',
         excerpt: 'The incursion of fats, oils, and grease (FOG) into environmental matrices poses a significant and multifaceted threat to water quality and ecosystem integrity. As industrial activities expand, so too does the propensity for FOG waste to seep into groundwater, obstruct sewer systems, and induce detrimental ecological effects...',
-        href: '#',
+        slug: 'industry-fog-pollution',
         image: '/images/industrial-bacteria-application.jpg',
       },
       {
         title: 'WASTE NOT WANT NOT: Application in Sewage Treatment Plants',
         excerpt: 'The treatment and disposal of human waste represent one of the most pressing environmental and public health challenges of our time, particularly for coastal cities worldwide. Recent media reports have brought to light the contamination of the renowned beaches of the City of Cape Town, South Africa—a distressing illustration of broader global issues pertaining to waste management inefficiencies and their dire consequences on the environment...',
-        href: '#',
+        slug: 'sewage-treatment-plants',
         image: '/images/organic-waste-management-bacteria.jpg',
       },
     ],
