@@ -215,11 +215,8 @@ const NewHeader = () => {
         ref={headerRef}
         style={{ backgroundColor: 'var(--color-brown)' }}
         className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'shadow-md h-20' 
-            : 'h-24'
-        }`}
-      >
+          isScrolled ? 'shadow-md py-2' : 'py-3'
+        }`}>
         <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
             {/* Logo */}
@@ -227,8 +224,7 @@ const NewHeader = () => {
               className="flex-shrink-0"
               variants={itemVariants}
               initial="hidden"
-              animate="visible"
-            >
+              animate="visible">
               <Link to="/" className="flex items-center h-full">
                 <motion.img 
                   src={logo} 
@@ -293,29 +289,30 @@ const NewHeader = () => {
                       initial="hidden"
                       animate="visible"
                       exit="exit"
-                      className="absolute right-0 mt-2 w-96 bg-white rounded-lg shadow-xl overflow-hidden z-50"
+                      className="absolute right-0 mt-2 w-[32rem] bg-white rounded-xl shadow-2xl overflow-hidden z-50 border border-gray-100"
                     >
-                      <div className="p-3 border-b border-gray-100">
+                      <div className="p-4 border-b border-gray-100 bg-gray-50">
                         <div className="relative">
-                          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                           <div className="flex items-center">
                             <input
                               type="text"
                               value={searchQuery}
                               onChange={(e) => setSearchQuery(e.target.value)}
                               onKeyDown={handleKeyDown}
-                              placeholder="Search articles..."
-                              className="flex-1 pl-10 pr-4 py-2 rounded-l-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                              placeholder="Search articles, categories, or topics..."
+                              className="flex-1 pl-12 pr-5 py-3 rounded-xl border-0 bg-white shadow-sm focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50 text-gray-800 placeholder-gray-400 transition-all duration-200"
                               autoFocus
                             />
                             <button
                               onClick={() => setShowFilters(!showFilters)}
-                              className={`h-10 px-3 border-t border-b border-r rounded-r-md ${
+                              className={`ml-2 h-12 w-12 flex items-center justify-center rounded-xl transition-all duration-200 ${
                                 hasActiveFilters 
-                                  ? 'bg-teal-50 border-teal-300 text-teal-600' 
-                                  : 'border-gray-200 hover:bg-gray-50'
+                                  ? 'bg-teal-100 text-teal-600 shadow-md' 
+                                  : 'bg-white text-gray-500 hover:bg-gray-50 shadow-sm hover:shadow-md'
                               }`}
                               title="Filters"
+                              aria-label="Filters"
                             >
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-1 1H9a1 1 0 01-1-1v-3.586L3.293 7.707A1 1 0 013 7V3z" clipRule="evenodd" />
@@ -326,46 +323,63 @@ const NewHeader = () => {
                         
                         {/* Active Filters */}
                         {hasActiveFilters && (
-                          <div className="mt-2 flex flex-wrap gap-2">
+                          <div className="mt-3 flex flex-wrap items-center gap-2">
+                            <span className="text-xs font-medium text-gray-500 mr-1">Filters:</span>
                             {filters.category && (
-                              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800">
-                                Category: {filters.category}
+                              <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-teal-50 text-teal-700 border border-teal-100">
+                                {filters.category}
                                 <button 
-                                  onClick={() => setFilters({...filters, category: undefined})}
-                                  className="ml-1.5 inline-flex items-center justify-center h-4 w-4 rounded-full text-teal-600 hover:bg-teal-200"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setFilters({...filters, category: undefined});
+                                  }}
+                                  className="ml-1.5 inline-flex items-center justify-center h-4 w-4 rounded-full text-teal-500 hover:bg-teal-100 transition-colors"
+                                  aria-label={`Remove category filter: ${filters.category}`}
                                 >
                                   &times;
                                 </button>
                               </span>
                             )}
                             {dateRange.startDate && (
-                              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                From: {dateRange.startDate.toLocaleDateString()}
+                              <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">
+                                From {dateRange.startDate.toLocaleDateString()}
                                 <button 
-                                  onClick={() => setDateRange({...dateRange, startDate: null})}
-                                  className="ml-1.5 inline-flex items-center justify-center h-4 w-4 rounded-full text-blue-600 hover:bg-blue-200"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setDateRange({...dateRange, startDate: null});
+                                  }}
+                                  className="ml-1.5 inline-flex items-center justify-center h-4 w-4 rounded-full text-blue-500 hover:bg-blue-100 transition-colors"
+                                  aria-label="Clear start date"
                                 >
                                   &times;
                                 </button>
                               </span>
                             )}
                             {dateRange.endDate && (
-                              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                To: {dateRange.endDate.toLocaleDateString()}
+                              <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">
+                                To {dateRange.endDate.toLocaleDateString()}
                                 <button 
-                                  onClick={() => setDateRange({...dateRange, endDate: null})}
-                                  className="ml-1.5 inline-flex items-center justify-center h-4 w-4 rounded-full text-blue-600 hover:bg-blue-200"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setDateRange({...dateRange, endDate: null});
+                                  }}
+                                  className="ml-1.5 inline-flex items-center justify-center h-4 w-4 rounded-full text-blue-500 hover:bg-blue-100 transition-colors"
+                                  aria-label="Clear end date"
                                 >
                                   &times;
                                 </button>
                               </span>
                             )}
                             {filters.sortBy && filters.sortBy !== 'relevance' && (
-                              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                              <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-purple-50 text-purple-700 border border-purple-100">
                                 Sorted: {filters.sortBy}
                                 <button 
-                                  onClick={() => setFilters({...filters, sortBy: 'relevance'})}
-                                  className="ml-1.5 inline-flex items-center justify-center h-4 w-4 rounded-full text-purple-600 hover:bg-purple-200"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setFilters({...filters, sortBy: 'relevance'});
+                                  }}
+                                  className="ml-1.5 inline-flex items-center justify-center h-4 w-4 rounded-full text-purple-500 hover:bg-purple-100 transition-colors"
+                                  aria-label="Reset sorting"
                                 >
                                   &times;
                                 </button>
@@ -373,101 +387,97 @@ const NewHeader = () => {
                             )}
                             <button 
                               onClick={clearFilters}
-                              className="ml-auto text-xs text-gray-500 hover:text-gray-700"
+                              className="ml-auto text-xs font-medium text-teal-600 hover:text-teal-700 hover:underline transition-colors"
                             >
-                              Clear all
+                              Clear all filters
                             </button>
                           </div>
                         )}
                       </div>
                       
                       {/* Filters Panel */}
-                      {showFilters && (
-                        <div className="border-t border-gray-200 p-4 bg-gray-50">
-                          <h3 className="text-sm font-medium text-gray-700 mb-3">Filter Results</h3>
-                          
-                          <div className="space-y-4">
-                            {/* Category Filter */}
-                            <div>
-                              <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
-                              <select
-                                className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md"
-                                value={filters.category || ''}
-                                onChange={(e) => setFilters({
-                                  ...filters,
-                                  category: e.target.value || undefined
-                                })}
-                              >
-                                <option value="">All Categories</option>
-                                {searchCategories.map((category) => (
-                                  <option key={category} value={category}>
-                                    {category}
-                                  </option>
-                                ))}
-                              </select>
-                            </div>
-                            
-                            {/* Date Range */}
-                            <div>
-                              <label className="block text-sm font-medium text-gray-700 mb-1">Date Range</label>
-                              <div className="grid grid-cols-2 gap-2">
-                                <div>
-                                  <label className="block text-xs text-gray-500 mb-1">From</label>
-                                  <input
-                                    type="date"
-                                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
-                                    value={dateRange.startDate ? dateRange.startDate.toISOString().split('T')[0] : ''}
-                                    onChange={(e) => setDateRange({
-                                      ...dateRange,
-                                      startDate: e.target.value ? new Date(e.target.value) : null
-                                    })}
-                                  />
-                                </div>
-                                <div>
-                                  <label className="block text-xs text-gray-500 mb-1">To</label>
-                                  <input
-                                    type="date"
-                                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
-                                    value={dateRange.endDate ? dateRange.endDate.toISOString().split('T')[0] : ''}
-                                    onChange={(e) => setDateRange({
-                                      ...dateRange,
-                                      endDate: e.target.value ? new Date(e.target.value) : null
-                                    })}
-                                    min={dateRange.startDate ? dateRange.startDate.toISOString().split('T')[0] : undefined}
-                                  />
-                                </div>
+                      <AnimatePresence>
+                        {showFilters && (
+                          <motion.div 
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="border-t border-gray-200 overflow-hidden"
+                          >
+                            <div className="p-5 bg-gray-50">
+                              <div className="flex items-center justify-between mb-4">
+                                <h3 className="text-sm font-semibold text-gray-800 uppercase tracking-wider">Filter Results</h3>
+                                <button 
+                                  onClick={() => setShowFilters(false)}
+                                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                                  aria-label="Hide filters"
+                                >
+                                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                  </svg>
+                                </button>
                               </div>
-                            </div>
-                            
-                            {/* Sort Options */}
-                            <div>
-                              <label className="block text-sm font-medium text-gray-700 mb-1">Sort By</label>
-                              <div className="space-y-2">
-                                {[
-                                  { value: 'relevance', label: 'Relevance' },
-                                  { value: 'newest', label: 'Newest First' },
-                                  { value: 'oldest', label: 'Oldest First' },
-                                ].map((option) => (
-                                  <div key={option.value} className="flex items-center">
-                                    <input
-                                      id={`sort-${option.value}`}
-                                      name="sort-method"
-                                      type="radio"
-                                      className="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300"
-                                      checked={filters.sortBy === option.value}
-                                      onChange={() => setFilters({...filters, sortBy: option.value as SortOption})}
-                                    />
-                                    <label htmlFor={`sort-${option.value}`} className="ml-2 block text-sm text-gray-700">
-                                      {option.label}
-                                    </label>
+                              
+                              <div className="space-y-6">
+                                {/* Category Filter */}
+                                <div>
+                                  <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                                  <select
+                                    className="block w-full pl-3 pr-10 py-2.5 text-base border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 rounded-lg bg-white shadow-sm transition-all duration-200"
+                                    value={filters.category || ''}
+                                    onChange={(e) => setFilters({
+                                      ...filters,
+                                      category: e.target.value || undefined
+                                    })}
+                                  >
+                                    <option value="">All Categories</option>
+                                    {searchCategories.map((category) => (
+                                      <option key={category} value={category}>
+                                        {category}
+                                      </option>
+                                    ))}
+                                  </select>
+                                </div>
+                                
+                                {/* Date Range */}
+                                <div>
+                                  <label className="block text-sm font-medium text-gray-700 mb-2">Date Range</label>
+                                  <div className="grid grid-cols-2 gap-3">
+                                    <div>
+                                      <label className="block text-xs text-gray-500 mb-1">From</label>
+                                      <input
+                                        type="date"
+                                        className="mt-1 block w-full pl-3 pr-3 py-2.5 border border-gray-300 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+                                        value={dateRange.startDate ? dateRange.startDate.toISOString().split('T')[0] : ''}
+                                        onChange={(e) => setDateRange({
+                                          ...dateRange,
+                                          startDate: e.target.value ? new Date(e.target.value) : null
+                                        })}
+                                      />
+                                    </div>
+                                    <div>
+                                      <label className="block text-xs text-gray-500 mb-1">To</label>
+                                      <input
+                                        type="date"
+                                        className="mt-1 block w-full pl-3 pr-3 py-2.5 border border-gray-300 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
+                                        value={dateRange.endDate ? dateRange.endDate.toISOString().split('T')[0] : ''}
+                                        min={dateRange.startDate ? dateRange.startDate.toISOString().split('T')[0] : undefined}
+                                        onChange={(e) => setDateRange({
+                                          ...dateRange,
+                                          endDate: e.target.value ? new Date(e.target.value) : null
+                                        })}
+                                      />
+                                    </div>
                                   </div>
-                                ))}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                      )}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
 
+                      {/* Search Results */}
                       {isSearching ? (
                         <div className="p-4 text-center text-gray-500">
                           <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-teal-500 mx-auto"></div>
@@ -502,33 +512,19 @@ const NewHeader = () => {
                                   </div>
                                 )}
                                 <div className="flex-1 min-w-0">
-                                  <div className="flex justify-between items-start">
-                                    <h3 className={`text-sm font-medium ${
-                                      result.type === 'message' ? 'text-yellow-700' : 'text-gray-900'}
-                                      line-clamp-1`}>
-                                      {result.title}
-                                    </h3>
-                                    {result.category && !result.isComingSoon && (
-                                      <span className="ml-2 px-2 py-0.5 bg-teal-100 text-teal-800 text-xs rounded-full whitespace-nowrap">
-                                        {result.category}
-                                      </span>
-                                    )}
-                                  </div>
+                                  <p className="text-sm font-medium text-gray-900 truncate">
+                                    {result.title}
+                                  </p>
                                   {result.excerpt && (
-                                    <p className="text-sm text-gray-500 mt-1 line-clamp-2">
+                                    <p className="text-sm text-gray-500 line-clamp-2 mt-1">
                                       {result.excerpt}
                                     </p>
                                   )}
-                                  {result.date && !result.isComingSoon && (
-                                    <div className="mt-1 flex items-center text-xs text-gray-400">
-                                      <Clock className="h-3 w-3 mr-1 flex-shrink-0" />
-                                      <span>{new Date(result.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                                  {result.date && (
+                                    <div className="mt-1 flex items-center text-xs text-gray-500">
+                                      <Clock className="h-3 w-3 mr-1" />
+                                      <span>{new Date(result.date).toLocaleDateString()}</span>
                                     </div>
-                                  )}
-                                  {result.isComingSoon && (
-                                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 mt-1">
-                                      Coming Soon
-                                    </span>
                                   )}
                                 </div>
                               </div>

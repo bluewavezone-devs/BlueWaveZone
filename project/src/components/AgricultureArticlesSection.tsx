@@ -67,7 +67,7 @@ const AgricultureArticlesSection: React.FC = () => {
           {agricultureArticles.map((article, index) => (
             <div 
               key={article.title}
-              className="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+              className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-white/20"
             >
               <div className="h-48 overflow-hidden">
                 <img 
@@ -77,18 +77,18 @@ const AgricultureArticlesSection: React.FC = () => {
                 />
               </div>
               <div className="p-6">
-                <div className="text-sm text-[var(--color-teal)] font-semibold mb-2">
+                <div className="text-sm text-white font-semibold mb-2 bg-[var(--color-teal)]/80 px-3 py-1 rounded-full inline-block">
                   {`0${index + 1}`}
                 </div>
-                <h3 className="text-xl font-semibold text-[var(--color-brown)] mb-3">
+                <h3 className="text-xl font-semibold text-white mb-3">
                   {article.title}
                 </h3>
-                <p className="text-gray-600 mb-4 line-clamp-4 article-excerpt">
+                <p className="text-white/90 mb-4 line-clamp-4 article-excerpt">
                   {article.excerpt}
                 </p>
                 <Link
                   to={`/articles/${article.slug}`}
-                  className="inline-flex items-center text-[var(--color-teal)] font-medium hover:text-[var(--color-deep-blue)] transition-colors group mt-4"
+                  className="inline-flex items-center text-white font-medium hover:text-white/80 transition-colors group mt-4 border-b border-transparent hover:border-white/50 pb-1"
                 >
                   Learn more
                   <svg 
