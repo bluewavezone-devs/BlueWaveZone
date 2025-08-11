@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Search, Clock, FileText } from 'lucide-react';
 import logo from '/images/logo.png';
-import { searchContent, type SearchResult, type SearchOptions, type SortOption, searchCategories } from '../services/searchService';
+import { searchContent, type SearchResult, type SearchOptions, searchCategories } from '../services/searchService';
 
 const NewHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -289,24 +289,24 @@ const NewHeader = () => {
                       initial="hidden"
                       animate="visible"
                       exit="exit"
-                      className="absolute right-0 mt-2 w-[32rem] bg-white rounded-xl shadow-2xl overflow-hidden z-50 border border-gray-100"
+                      className="fixed sm:absolute right-0 left-0 sm:left-auto w-[calc(100%-2rem)] sm:w-[40rem] lg:w-[50rem] mt-2 mx-4 sm:mx-0 bg-white rounded-xl shadow-2xl overflow-hidden z-50 border border-gray-100 max-w-[95vw]"
                     >
-                      <div className="p-4 border-b border-gray-100 bg-gray-50">
-                        <div className="relative">
+                      <div className="p-4 sm:p-5 border-b border-gray-100 bg-gray-50">
+                        <div className="relative max-w-4xl mx-auto">
                           <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                          <div className="flex items-center">
+                          <div className="flex items-center w-full">
                             <input
                               type="text"
                               value={searchQuery}
                               onChange={(e) => setSearchQuery(e.target.value)}
                               onKeyDown={handleKeyDown}
                               placeholder="Search articles, categories, or topics..."
-                              className="flex-1 pl-12 pr-5 py-3 rounded-xl border-0 bg-white shadow-sm focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50 text-gray-800 placeholder-gray-400 transition-all duration-200"
+                              className="flex-1 pl-12 pr-5 py-3 sm:py-4 text-base sm:text-lg rounded-xl border-0 bg-white shadow-sm focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50 text-gray-800 placeholder-gray-400 transition-all duration-200"
                               autoFocus
                             />
                             <button
                               onClick={() => setShowFilters(!showFilters)}
-                              className={`ml-2 h-12 w-12 flex items-center justify-center rounded-xl transition-all duration-200 ${
+                              className={`ml-2 sm:ml-3 h-12 w-12 sm:h-14 sm:w-14 flex items-center justify-center rounded-xl transition-all duration-200 ${
                                 hasActiveFilters 
                                   ? 'bg-teal-100 text-teal-600 shadow-md' 
                                   : 'bg-white text-gray-500 hover:bg-gray-50 shadow-sm hover:shadow-md'
@@ -314,7 +314,7 @@ const NewHeader = () => {
                               title="Filters"
                               aria-label="Filters"
                             >
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-1 1H9a1 1 0 01-1-1v-3.586L3.293 7.707A1 1 0 013 7V3z" clipRule="evenodd" />
                               </svg>
                             </button>
@@ -443,7 +443,7 @@ const NewHeader = () => {
                                 {/* Date Range */}
                                 <div>
                                   <label className="block text-sm font-medium text-gray-700 mb-2">Date Range</label>
-                                  <div className="grid grid-cols-2 gap-3">
+                                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                     <div>
                                       <label className="block text-xs text-gray-500 mb-1">From</label>
                                       <input
@@ -479,65 +479,93 @@ const NewHeader = () => {
 
                       {/* Search Results */}
                       {isSearching ? (
-                        <div className="p-4 text-center text-gray-500">
-                          <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-teal-500 mx-auto"></div>
+                        <div className="p-6 sm:p-8 text-center text-gray-500">
+                          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-500 mx-auto"></div>
+                          <p className="mt-2 text-sm sm:text-base">Searching...</p>
                         </div>
                       ) : searchResults.length > 0 ? (
-                        <div className="max-h-96 overflow-y-auto">
-                          {searchResults.map((result, index) => (
-                            <div 
-                              key={result.id}
-                              onClick={() => {
-                                if (result.type !== 'message') {
-                                  navigate(`/articles/${result.slug}`);
-                                }
-                                setIsSearchOpen(false);
-                              }}
-                              className={`block p-4 cursor-pointer hover:bg-gray-50 transition-colors ${
-                                selectedResultIndex === index ? 'bg-gray-50' : ''
-                              } ${result.type === 'message' ? 'bg-yellow-50' : ''}`}
-                            >
-                              <div className="flex items-start space-x-3">
-                                {result.type !== 'message' && result.image ? (
-                                  <div className="flex-shrink-0 w-12 h-12 rounded-md overflow-hidden bg-gray-100">
-                                    <img 
-                                      src={result.image} 
-                                      alt={result.title}
-                                      className="w-full h-full object-cover"
-                                    />
-                                  </div>
-                                ) : (
-                                  <div className="flex-shrink-0 mt-0.5">
-                                    <FileText className="h-5 w-5 text-teal-500" />
-                                  </div>
-                                )}
-                                <div className="flex-1 min-w-0">
-                                  <p className="text-sm font-medium text-gray-900 truncate">
-                                    {result.title}
-                                  </p>
-                                  {result.excerpt && (
-                                    <p className="text-sm text-gray-500 line-clamp-2 mt-1">
-                                      {result.excerpt}
-                                    </p>
-                                  )}
-                                  {result.date && (
-                                    <div className="mt-1 flex items-center text-xs text-gray-500">
-                                      <Clock className="h-3 w-3 mr-1" />
-                                      <span>{new Date(result.date).toLocaleDateString()}</span>
+                        <div className="max-h-[32rem] overflow-y-auto">
+                          <div className="px-4 sm:px-6 py-2 border-b border-gray-100 bg-gray-50">
+                            <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              {searchResults.length} {searchResults.length === 1 ? 'result' : 'results'} found
+                            </p>
+                          </div>
+                          <div>
+                            {searchResults.map((result, index) => (
+                              <div 
+                                key={result.id}
+                                onClick={() => {
+                                  if (result.type !== 'message') {
+                                    navigate(`/articles/${result.slug}`);
+                                  }
+                                  setIsSearchOpen(false);
+                                }}
+                                className={`block p-4 sm:p-5 cursor-pointer hover:bg-gray-50 transition-colors ${
+                                  selectedResultIndex === index ? 'bg-gray-50' : ''
+                                } ${result.type === 'message' ? 'bg-yellow-50' : ''}`}
+                              >
+                                <div className="flex items-start space-x-4 sm:space-x-5">
+                                  {result.type !== 'message' && result.image ? (
+                                    <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden bg-gray-100">
+                                      <img 
+                                        src={result.image} 
+                                        alt={result.title}
+                                        className="w-full h-full object-cover"
+                                      />
+                                    </div>
+                                  ) : (
+                                    <div className="flex-shrink-0 mt-1">
+                                      <FileText className="h-6 w-6 sm:h-7 sm:w-7 text-teal-500" />
                                     </div>
                                   )}
+                                  <div className="flex-1 min-w-0">
+                                    <h3 className="text-base sm:text-lg font-medium text-gray-900 leading-snug">
+                                      {result.title}
+                                    </h3>
+                                    {result.excerpt && (
+                                      <p className="mt-1 text-sm sm:text-base text-gray-600 line-clamp-2">
+                                        {result.excerpt}
+                                      </p>
+                                    )}
+                                    {result.date && (
+                                      <div className="mt-2 flex items-center text-xs sm:text-sm text-gray-500">
+                                        <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1.5" />
+                                        <span>{new Date(result.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                                        {result.category && (
+                                          <span className="ml-3 px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800">
+                                            {result.category}
+                                          </span>
+                                        )}
+                                      </div>
+                                    )}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          ))}
+                            ))}
+                          </div>
                         </div>
                       ) : searchQuery ? (
-                        <div className="p-4 text-center text-gray-500">
-                          No results found for "{searchQuery}"
+                        <div className="p-6 sm:p-8 text-center">
+                          <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <h3 className="mt-2 text-sm font-medium text-gray-900">No results found</h3>
+                          <p className="mt-1 text-sm text-gray-500">No articles match "{searchQuery}"</p>
+                          <div className="mt-6">
+                            <button
+                              type="button"
+                              onClick={clearFilters}
+                              className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
+                            >
+                              Clear all filters
+                            </button>
+                          </div>
                         </div>
                       ) : (
-                        <div className="p-4 text-center text-gray-500">
-                          <p>Start typing to search articles</p>
+                        <div className="p-6 sm:p-8 text-center">
+                          <Search className="mx-auto h-12 w-12 text-gray-400" />
+                          <h3 className="mt-2 text-sm font-medium text-gray-900">Search for articles</h3>
+                          <p className="mt-1 text-sm text-gray-500">Type to search our collection of articles and resources.</p>
                         </div>
                       )}
                     </motion.div>
