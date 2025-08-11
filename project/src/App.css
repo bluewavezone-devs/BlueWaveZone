@@ -64,6 +64,30 @@ p {
   line-height: 1.7;
 }
 
+/* Ensure consistent 4-line clamp for all article excerpts */
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: calc(1.7em * 4); /* line-height * number of lines */
+  line-height: 1.7em;
+  min-height: calc(1.7em * 4); /* Ensure consistent height */
+}
+
+/* Specific targeting for article cards */
+.article-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: calc(1.7em * 4);
+  line-height: 1.7em;
+  min-height: calc(1.7em * 4);
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

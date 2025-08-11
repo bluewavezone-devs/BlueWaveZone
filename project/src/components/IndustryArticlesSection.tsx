@@ -56,7 +56,7 @@ const industryArticles = [
     title: 'Industry and FOG Pollution',
     excerpt: 'Learn about our cutting-edge solutions for Fats, Oils, and Grease (FOG) pollution in industrial settings, where specialized bacterial consortia effectively degrade complex organic compounds in wastewater systems.',
     image: '/images/industrial-wastewater-treatment-bacteria.jpg',
-    href: '/article/fog-pollution-solutions',
+    slug: 'fog-pollution-solutions',
     category: 'Pollution Control',
     date: '2025-02-05',
     author: {

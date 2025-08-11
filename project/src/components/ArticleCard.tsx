@@ -20,7 +20,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   slug 
 }) => {
   return (
-    <Link to={`/articles/${slug}`} className="block group">
+    <Link to={`/articles/${encodeURIComponent(slug)}`} className="block group">
       <article className="card cursor-pointer">
       {image && (
         <div className="mb-4 overflow-hidden rounded-lg">
@@ -46,7 +46,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
       <h3 className="text-xl font-semibold mb-2 text-[var(--color-brown)] group-hover:opacity-80 transition-opacity duration-300 line-clamp-2">
         {title}
       </h3>
-      <p className="text-gray-600 leading-relaxed line-clamp-3">
+      <p className="text-gray-600 leading-relaxed line-clamp-4 article-excerpt">
         {excerpt}
       </p>
       </article>

@@ -13,19 +13,19 @@ const agricultureArticles: Article[] = [
     title: 'The Organic Transition',
     excerpt: 'As the global demand for organic produce escalates, farmers are increasingly interested in transitioning from conventional to organic agriculture. This shift requires innovative approaches to maintain productivity while meeting organic certification standards.',
     image: '/images/soil-testing-laboratory.jpg',
-    slug: 'the-organic-transition',
+    slug: 'organic-transition',
   },
   {
     title: 'Bacterial Consortia in Agriculture',
     excerpt: 'In the quest to address the multifaceted challenges besieging modern agriculture, the strategic deployment of beneficial bacterial consortia emerges as a game-changing solution. These microbial communities work synergistically to enhance soil fertility and plant health.',
     image: '/images/organic-fertilizer-testing-lab.png',
-    slug: 'bacterial-consortia-in-agriculture',
+    slug: 'bacterial-consortia',
   },
   {
     title: 'Agriculture at a Crossroads',
     excerpt: 'Agriculture today stands at a critical juncture, confronted by a confluence of escalating challenges that threaten global food security and environmental sustainability. Innovative solutions are needed to ensure a resilient and productive agricultural future.',
     image: '/images/agricultural-research-field.jpg',
-    slug: 'agriculture-at-crossroads',
+    slug: 'agriculture-crossroads',
   },
 ];
 
@@ -83,7 +83,7 @@ const AgricultureArticlesSection: React.FC = () => {
                 <h3 className="text-xl font-semibold text-[var(--color-brown)] mb-3">
                   {article.title}
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600 mb-4 line-clamp-4 article-excerpt">
                   {article.excerpt}
                 </p>
                 <Link

@@ -8,14 +8,14 @@ const About: React.FC = () => {
     firstName: '',
     lastName: '',
     email: '',
-    message: ''
+    message: 'Leave your comment or document request in the box below.'
   });
 
   const [documentForm, setDocumentForm] = useState({
     firstName: '',
     lastName: '',
-    email: '',
-    requestDetails: ''
+    email: 'admin@bluewavezone.co.za',
+    requestDetails: 'Leave your comment or document request in the box below.'
   });
 
   const handleContactSubmit = (e: React.FormEvent) => {
@@ -202,13 +202,14 @@ const About: React.FC = () => {
                   />
                 </div>
                 <div className="mb-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Comment or Message</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Your Comment or Document Request *</label>
                   <textarea
                     name="message"
                     value={contactForm.message}
                     onChange={(e) => handleInputChange(e, 'contact')}
                     rows={4}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
+                    required
                   />
                 </div>
                 <button

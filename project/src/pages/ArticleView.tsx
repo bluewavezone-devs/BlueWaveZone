@@ -8,8 +8,9 @@ import { articlePosts } from './Article';
 const ArticleView: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const article = articlePosts.find(post => post.slug === slug);
-  const moreArticles = articlePosts.filter(post => post.slug !== slug).slice(0, 4); // show 4 others
+  const decodedSlug = slug ? decodeURIComponent(slug) : '';
+  const article = articlePosts.find(post => post.slug === decodedSlug);
+  const moreArticles = articlePosts.filter(post => post.slug !== decodedSlug).slice(0, 4); // show 4 others
 
   if (!article) {
     return (
@@ -58,10 +59,14 @@ const ArticleView: React.FC = () => {
             <p className="text-lg text-gray-600 mb-4 font-medium">{article.excerpt}</p>
             {/* Author Details */}
             <div className="flex items-center gap-4 mb-8">
-              <img src={article.author.avatar} alt={article.author.name} className="w-14 h-14 rounded-full border-2 border-teal-300" />
+              <img 
+                src="/images/bluewave-logo-icon.png" 
+                alt="BlueWave Zone Logo" 
+                className="w-14 h-14 rounded-full border-2 border-teal-300 object-contain p-1" 
+              />
               <div>
-                <div className="font-semibold text-gray-900">{article.author.name}</div>
-                <div className="text-gray-500 text-sm">{article.author.bio}</div>
+                <div className="font-semibold text-gray-900">By the BlueWave Team</div>
+                <div className="text-gray-500 text-sm">Experts in sustainable agricultural solutions</div>
               </div>
             </div>
             {/* Rich Content */}

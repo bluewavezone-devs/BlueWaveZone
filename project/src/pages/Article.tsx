@@ -31,7 +31,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'bacteria-extraction-approach',
     author: {
       name: 'Blue Wave Research Team',
-      email: 'research@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=BlueWave+Research&background=4a7c59&color=fff',
       bio: 'Dedicated to advancing microbial biotechnology'
     },
@@ -62,7 +62,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'why-rhizosphere',
     author: {
       name: 'Dr. Sarah Chen',
-      email: 'schen@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Sarah+Chen&background=4a7c59&color=fff',
       bio: 'Soil Microbiologist at BlueWave Zone'
     },
@@ -91,7 +91,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'rhizosphere-nature',
     author: {
       name: 'Dr. Emily Zhang',
-      email: 'ezhang@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Emily+Zhang&background=4a7c59&color=fff',
       bio: 'Rhizosphere Specialist at BlueWave Zone'
     },
@@ -122,7 +122,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'importance-pure-soil',
     author: {
       name: 'Dr. James Wilson',
-      email: 'jwilson@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=James+Wilson&background=4a7c59&color=fff',
       bio: 'Soil Scientist at BlueWave Zone'
     },
@@ -154,7 +154,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'fog-pollution',
     author: {
       name: 'Industrial Solutions Team',
-      email: 'industry@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Industrial+Solutions&background=4a7c59&color=fff',
       bio: 'Experts in industrial applications of microbial solutions'
     },
@@ -182,7 +182,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'sewage-treatment',
     author: {
       name: 'Waste Management Team',
-      email: 'waste@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Waste+Management&background=4a7c59&color=fff',
       bio: 'Specialists in microbial waste treatment solutions'
     },
@@ -207,7 +207,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'bacteria-advancement-media',
     author: {
       name: 'Media Relations Team',
-      email: 'media@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Media+Relations&background=4a7c59&color=fff',
       bio: 'Communicating scientific advancements to the public'
     },
@@ -235,7 +235,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'nobel-prizes-bacteria',
     author: {
       name: 'Research Department',
-      email: 'research@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Research+Dept&background=4a7c59&color=fff',
       bio: 'Dedicated to advancing microbial research'
     },
@@ -265,7 +265,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'gut-microbiota-advances',
     author: {
       name: 'Gut Health Research Team',
-      email: 'guthealth@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Gut+Health+Team&background=4a7c59&color=fff',
       bio: 'Exploring the gut microbiome for better health'
     },
@@ -295,7 +295,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'organic-transition',
     author: {
       name: 'Agricultural Research Team',
-      email: 'agriculture@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Agri+Research&background=4a7c59&color=fff',
       bio: 'Pioneering sustainable agricultural solutions'
     },
@@ -323,7 +323,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'bacterial-consortia',
     author: {
       name: 'Agricultural Research Team',
-      email: 'agriculture@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Agri+Research&background=4a7c59&color=fff',
       bio: 'Pioneering sustainable agricultural solutions'
     },
@@ -351,7 +351,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'agriculture-crossroads',
     author: {
       name: 'Agricultural Research Team',
-      email: 'agriculture@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Agri+Research&background=4a7c59&color=fff',
       bio: 'Pioneering sustainable agricultural solutions'
     },
@@ -382,7 +382,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'beneficial-vs-pathogenic',
     author: {
       name: 'Dr. Michael Rodriguez',
-      email: 'mrodriguez@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Michael+Rodriguez&background=4a7c59&color=fff',
       bio: 'Microbial Ecologist at BlueWave Zone'
     },
@@ -426,7 +426,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'bacteria-waste-management',
     author: {
       name: 'Industrial Solutions Team',
-      email: 'industry@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Industrial+Solutions&background=4a7c59&color=fff',
       bio: 'Experts in industrial applications of microbial solutions'
     },
@@ -455,7 +455,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'farming-bacteria-revolution',
     author: {
       name: 'Agricultural Research Team',
-      email: 'agriculture@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Agri+Research&background=4a7c59&color=fff',
       bio: 'Pioneering sustainable agricultural solutions'
     },
@@ -475,7 +475,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'organic-transition',
     author: {
       name: 'Agricultural Research Team',
-      email: 'agriculture@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Agri+Research&background=4a7c59&color=fff',
       bio: 'Pioneering sustainable agricultural solutions'
     },
@@ -496,7 +496,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'bacterial-consortia',
     author: {
       name: 'Agricultural Research Team',
-      email: 'agriculture@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Agri+Research&background=4a7c59&color=fff',
       bio: 'Pioneering sustainable agricultural solutions'
     },
@@ -517,7 +517,7 @@ export const articlePosts: ArticlePost[] = [
     slug: 'agriculture-crossroads',
     author: {
       name: 'Agricultural Research Team',
-      email: 'agriculture@bluewavezone.com',
+      email: 'admin@bluewavezone.co.za',
       avatar: 'https://ui-avatars.com/api/?name=Agri+Research&background=4a7c59&color=fff',
       bio: 'Pioneering sustainable agricultural solutions'
     },

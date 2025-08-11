@@ -6,6 +6,9 @@ import Science from './pages/Science';
 import About from './pages/About';
 import Article from './pages/Article';
 import ArticleView from './pages/ArticleView';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfUse from './pages/TermsOfUse';
+import CodeOfConduct from './pages/CodeOfConduct';
 import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
@@ -22,6 +25,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/articles" element={<Article />} />
             <Route path="/articles/:slug" element={<ArticleView />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
+            <Route path="/code-of-conduct" element={<CodeOfConduct />} />
           </Routes>
         </main>
         <Footer />

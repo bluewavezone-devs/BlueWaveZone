@@ -28,7 +28,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => (
     </div>
     <div className="p-6 flex flex-col flex-1">
       <h3 className="text-xl font-semibold mb-3 text-[var(--color-brown)] leading-tight">{article.title}</h3>
-      <p className="mb-5 text-gray-600 flex-1 leading-relaxed">{article.excerpt}</p>
+      <p className="mb-5 text-gray-600 flex-1 leading-relaxed line-clamp-4 article-excerpt">{article.excerpt}</p>
       <Link 
         to={`/articles/${article.slug}`}
         className="inline-flex items-center text-[var(--color-teal)] font-medium hover:text-[var(--color-deep-blue)] transition-colors group mt-auto"
@@ -55,19 +55,19 @@ const categories: Category[] = [
       {
         title: 'Blue Wave Zone’s Approach to Beneficial Bacteria Extraction from Pure Soil',
         excerpt: 'The extraction and application of microorganisms from the rhizosphere of pure soil for beneficial purposes is a critical area of study in microbial biotechnology. Blue Wave Zone has been at the forefront of this field, focusing on the isolation of specific bacterial strains from unspoiled soil environments and supplying these components to our customers for further processing.',
-        slug: 'beneficial-bacteria-extraction',
+        slug: 'bacteria-extraction-approach',
         image: '/images/beneficial-bacteria-research.jpg',
       },
       {
         title: 'Why The Rhizosphere Is Used',
         excerpt: 'The rhizosphere constitutes a unique ecological niche, markedly distinct from other soil environments due to its intense microbial activity and diversity. Root exudates transform this zone into a thriving microbial habitat, characterized by high-density populations of beneficial bacteria that are pivotal for plant growth and soil health.',
-        href: '#',
+        slug: 'why-rhizosphere',
         image: '/images/fertile-soil-agriculture-1.jpg',
       },
       {
         title: 'Discerning Beneficial from Pathogenic Bacteria',
         excerpt: 'The microbial world is a dichotomy of beneficial and pathogenic bacteria, each playing distinct roles in environmental ecosystems and human health. Beneficial bacteria, like probiotics, are essential for digestion, vitamin production, and immune support in humans, while also contributing to nutrient cycling and soil fertility in the environment. In contrast, pathogenic bacteria can cause disease in plants and animals, disrupting ecosystems and agriculture.',
-        slug: 'beneficial-vs-pathogenic-bacteria',
+        slug: 'beneficial-pathogenic-bacteria',
         image: '/images/beneficial-bacteria-microscope-2.jpg',
       },
     ],
@@ -84,13 +84,13 @@ const categories: Category[] = [
       {
         title: 'Why pure soil is important',
         excerpt: 'The purity of soil is critical for isolating beneficial rhizospheric bacteria. Untouched soil provides a balanced ecosystem where beneficial bacteria evolve in symbiosis with plant roots, free from contaminants like pesticides and pollutants. This ensures the safety and efficacy of extracted bacterial strains, making them reliable for research and commercial applications while maintaining sustainable soil health.',
-        slug: 'why-pure-soil-important',
+        slug: 'importance-pure-soil',
         image: '/images/sustainable-agriculture-plant-growth-2.jpg',
       },
       {
         title: 'The Nature of the Rhizosphere: Unveiling the Microbial Nexus',
         excerpt: 'The rhizosphere, first described by Lorenz Hiltner in 1904, is a dynamic soil zone around plant roots rich in microbial life due to root exudates. This complex ecosystem features diverse microbial communities that differ significantly from bulk soil, with bacteria being the most responsive to root-derived compounds. These microorganisms form organized biofilms and microcolonies that interact closely with plant roots, influencing nutrient cycling, plant health, and soil fertility through intricate biochemical pathways and symbiotic relationships.',
-        slug: 'nature-of-rhizosphere',
+        slug: 'rhizosphere-nature',
         image: '/images/sustainable-agriculture-plant-growth-3.jpg',
       },
     ],
@@ -101,7 +101,7 @@ const categories: Category[] = [
       {
         title: 'Bacteria Advancement as reported by the media',
         excerpt: 'In the vast narrative of human advancement, there lies a lesser-sung epic—the remarkable history of bacterial natural products, an odyssey of minuscule marvels and microbial mastery that has been pivotal to human health. This saga, rich with discovery and innovation, is woven into the very fabric of modern medicine, and its chapters have been diligently chronicled not on ancient scrolls but within the archives of leading media outlets.',
-        href: '#',
+        slug: 'bacteria-advancement-media',
         image: '/images/fertile-soil-agriculture-1.jpg',
       },
       {
@@ -113,7 +113,7 @@ const categories: Category[] = [
       {
         title: 'Recent Advances in the Identification of Gut Microbiota and the Rectification of Dysbiosis: A New Horizon in Gastrointestinal Health',
         excerpt: 'The human gastrointestinal (GI) tract harbors a complex and dynamic population of microorganisms, known collectively as the gut microbiota, which play an indispensable role in maintaining homeostasis and health. Recent advances in high-throughput sequencing technologies and bioinformatics have led to unprecedented progress in the identification and characterization of these microbial communities...',
-        href: '#',
+        slug: 'gut-microbiota-advances',
         image: '/images/fertile-soil-agriculture-1.jpg',
       },
     ],
@@ -130,13 +130,13 @@ const categories: Category[] = [
       {
         title: 'Industry and FOG Pollution: The Peril of Industrial FOG',
         excerpt: 'The incursion of fats, oils, and grease (FOG) into environmental matrices poses a significant and multifaceted threat to water quality and ecosystem integrity. As industrial activities expand, so too does the propensity for FOG waste to seep into groundwater, obstruct sewer systems, and induce detrimental ecological effects...',
-        slug: 'industry-fog-pollution',
+        slug: 'fog-pollution',
         image: '/images/industrial-bacteria-application.jpg',
       },
       {
         title: 'WASTE NOT WANT NOT: Application in Sewage Treatment Plants',
         excerpt: 'The treatment and disposal of human waste represent one of the most pressing environmental and public health challenges of our time, particularly for coastal cities worldwide. Recent media reports have brought to light the contamination of the renowned beaches of the City of Cape Town, South Africa—a distressing illustration of broader global issues pertaining to waste management inefficiencies and their dire consequences on the environment...',
-        slug: 'sewage-treatment-plants',
+        slug: 'sewage-treatment',
         image: '/images/organic-waste-management-bacteria.jpg',
       },
     ],
