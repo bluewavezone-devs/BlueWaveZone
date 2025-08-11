@@ -38,12 +38,12 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
         </div>
         <div className="flex items-center gap-1">
           <Tag className="h-4 w-4" />
-          <span className="px-2 py-1 bg-teal-100 text-teal-700 rounded-md text-xs font-medium">
-            {category}
+          <span className="px-2 py-1 bg-teal-100 text-teal-700 rounded-md text-xs font-medium capitalize">
+            {category.toLowerCase()}
           </span>
         </div>
       </div>
-      <h3 className="text-xl font-semibold mb-2 group-hover:text-teal-600 transition-colors duration-300 line-clamp-2">
+      <h3 className="text-xl font-semibold mb-2 text-[var(--color-brown)] group-hover:opacity-80 transition-opacity duration-300 line-clamp-2">
         {title}
       </h3>
       <p className="text-gray-600 leading-relaxed line-clamp-3">

@@ -27,12 +27,23 @@ const ArticleView: React.FC = () => {
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Main Article */}
         <div className="flex-1 bg-white rounded-2xl shadow-lg overflow-hidden">
-          <img
-            src={article.image}
-            alt={article.title}
-            className="w-full h-72 object-cover object-center mb-0"
-            style={{ maxHeight: '340px' }}
-          />
+          <div className="relative w-full h-72 overflow-hidden">
+            <img
+              src={article.image}
+              alt={article.title}
+              className="w-full h-full object-cover object-center"
+              onError={(e) => {
+                // Fallback to a default image if the specified one fails to load
+                const target = e.target as HTMLImageElement;
+                target.src = '/images/beneficial-bacteria-research.jpg';
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <h1 className="text-3xl md:text-4xl font-bold mb-2 drop-shadow-lg">{article.title}</h1>
+              <p className="text-lg text-gray-200 drop-shadow-md">{article.excerpt}</p>
+            </div>
+          </div>
           <div className="px-6 py-8">
             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-4">
               <span className="flex items-center gap-1">
@@ -70,8 +81,16 @@ const ArticleView: React.FC = () => {
           <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
             <h2 className="text-xl font-bold mb-4 text-teal-700">More Articles</h2>
             <div className="flex flex-col gap-4">
-              {moreArticles.map((post, idx) => (
-                <ArticleCard key={post.href} {...post} />
+              {moreArticles.map((post) => (
+                <ArticleCard 
+                  key={post.slug}
+                  title={post.title}
+                  excerpt={post.excerpt}
+                  date={post.date}
+                  category={post.category}
+                  image={post.image}
+                  slug={post.slug}
+                />
               ))}
             </div>
           </div>

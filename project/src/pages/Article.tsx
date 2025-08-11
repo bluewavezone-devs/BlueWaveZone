@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ArticleCard from '../components/ArticleCard';
 
 export interface Author {
@@ -199,8 +199,8 @@ export const articlePosts: ArticlePost[] = [
   
   // Research Articles
   {
-    title: 'Bacteria Advancement as reported by the media',
-    excerpt: 'In the vast narrative of human advancement, there lies a lesser-sung epic—the remarkable history of bacterial natural products.',
+    title: 'Bacteria Advancement as Reported by the Media',
+    excerpt: 'In the vast narrative of human advancement, there lies a lesser-sung epic—the remarkable History of Bacterial Natural Products.',
     date: '2025-08-01',
     category: 'Research',
     image: '/images/beneficial-bacteria-microscope-2.jpg',
@@ -213,7 +213,7 @@ export const articlePosts: ArticlePost[] = [
     },
     content: (
       <div className="prose max-w-none">
-        <h2>Bacterial Advancements in the Media</h2>
+        <h2>The History of Bacterial Natural Products</h2>
         <p>In the vast narrative of human advancement, there lies a lesser-sung epic—the remarkable history of bacterial natural products, an odyssey of minuscule marvels and microbial mastery that has been pivotal to human health. This saga, rich with discovery and innovation, is woven into the very fabric of modern medicine, and its chapters have been diligently chronicled not on ancient scrolls but within the archives of leading media outlets.</p>
         
         <h3>Key Milestones</h3>
@@ -532,25 +532,57 @@ export const articlePosts: ArticlePost[] = [
 ];
 
 function Article() {
+  // Get all unique categories from articles
+  const categories = ['All', ...new Set(articlePosts.map(article => article.category))];
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  // Filter articles based on active category
+  const filteredArticles = activeCategory === 'All' 
+    ? articlePosts 
+    : articlePosts.filter(article => article.category === activeCategory);
+
   return (
     <div className="pt-16">
       <section className="section">
         <div className="container">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">Research Article</h1>
+            <h1 className="text-4xl font-bold mb-4">Research Articles</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Stay updated with the latest developments in bacterial research, applications, 
               and scientific discoveries from our team at BlueWave Zone.
             </p>
+            
+            {/* Category Filter Tabs */}
+            <div className="flex flex-wrap justify-center gap-2 mt-8 mb-4">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    activeCategory === category
+                      ? 'bg-teal-600 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+            
+            <div className="text-sm text-gray-500 mb-2">
+              Showing {filteredArticles.length} {filteredArticles.length === 1 ? 'article' : 'articles'}
+              {activeCategory !== 'All' && ` in ${activeCategory}`}
+            </div>
           </div>
-          {articlePosts.length === 0 ? (
+          
+          {filteredArticles.length === 0 ? (
             <div className="text-center py-12">
-              <h2 className="text-2xl font-semibold text-gray-700 mb-4">No articles available</h2>
-              <p className="text-gray-500">Check back later for new research articles and updates.</p>
+              <h2 className="text-2xl font-semibold text-gray-700 mb-4">No articles found</h2>
+              <p className="text-gray-500">Try selecting a different category or check back later for updates.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {articlePosts.map((article) => (
+              {filteredArticles.map((article) => (
                 <ArticleCard
                   key={article.slug}
                   title={article.title}

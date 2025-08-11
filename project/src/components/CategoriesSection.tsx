@@ -27,7 +27,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => (
       />
     </div>
     <div className="p-6 flex flex-col flex-1">
-      <h3 className="text-xl font-semibold mb-3 text-[var(--color-deep-blue)] leading-tight">{article.title}</h3>
+      <h3 className="text-xl font-semibold mb-3 text-[var(--color-brown)] leading-tight">{article.title}</h3>
       <p className="mb-5 text-gray-600 flex-1 leading-relaxed">{article.excerpt}</p>
       <Link 
         to={`/articles/${article.slug}`}
@@ -96,7 +96,7 @@ const categories: Category[] = [
     ],
   },
   {
-    name: 'The history of bacterial natural products',
+    name: 'The History of Bacterial Natural Products',
     articles: [
       {
         title: 'Bacteria Advancement as reported by the media',

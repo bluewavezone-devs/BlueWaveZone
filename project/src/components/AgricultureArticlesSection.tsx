@@ -80,7 +80,7 @@ const AgricultureArticlesSection: React.FC = () => {
                 <div className="text-sm text-[var(--color-teal)] font-semibold mb-2">
                   {`0${index + 1}`}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                <h3 className="text-xl font-semibold text-[var(--color-brown)] mb-3">
                   {article.title}
                 </h3>
                 <p className="text-gray-600 mb-4">
@@ -106,11 +106,7 @@ const AgricultureArticlesSection: React.FC = () => {
           ))}
         </div>
         
-        <div className="text-center">
-          <button className="px-8 py-3 bg-[var(--color-teal)] text-white font-semibold rounded-lg hover:bg-[var(--color-deep-blue)] transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5">
-            Explore Our Agricultural Solutions
-          </button>
-        </div>
+
       </div>
     </section>
   );
