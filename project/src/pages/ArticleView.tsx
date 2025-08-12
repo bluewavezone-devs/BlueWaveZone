@@ -86,14 +86,6 @@ const ArticleView: React.FC = () => {
                     <span className="text-xs bg-teal-100 text-teal-800 px-2 py-0.5 rounded-full font-medium">Team</span>
                   </div>
                   <p className="text-gray-600 mt-1">Pioneering sustainable agricultural solutions through innovative microbial research and technology</p>
-                  <div className="flex items-center gap-2 mt-2">
-                    <a href="/about" className="text-teal-600 hover:text-teal-800 text-sm font-medium flex items-center">
-                      Learn more about us
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
