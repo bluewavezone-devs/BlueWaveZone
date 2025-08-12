@@ -9,8 +9,21 @@ const ArticleView: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const decodedSlug = slug ? decodeURIComponent(slug) : '';
-  const article = articlePosts.find(post => post.slug === decodedSlug);
-  const moreArticles = articlePosts.filter(post => post.slug !== decodedSlug).slice(0, 4); // show 4 others
+  
+  // Normalize slugs for comparison (trim and lowercase)
+  const article = articlePosts.find(post => 
+    post.slug.trim().toLowerCase() === decodedSlug.trim().toLowerCase()
+  );
+  
+  // Get more articles from the same category, excluding the current one
+  const moreArticles = article 
+    ? articlePosts
+        .filter(post => 
+          post.slug !== article.slug && 
+          post.category === article.category
+        )
+        .slice(0, 4)
+    : articlePosts.slice(0, 4); // Fallback if no article found
 
   if (!article) {
     return (
@@ -60,12 +73,12 @@ const ArticleView: React.FC = () => {
             {/* Author Details */}
             <div className="flex items-center gap-4 mb-8">
               <img 
-                src="/images/bluewave-logo-icon.png" 
+                src="/favicon.ico" 
                 alt="BlueWave Zone Logo" 
-                className="w-14 h-14 rounded-full border-2 border-teal-300 object-contain p-1" 
+                className="w-14 h-14 rounded-full border-2 border-teal-300 object-cover" 
               />
               <div>
-                <div className="font-semibold text-gray-900">By the BlueWave Team</div>
+                <div className="font-semibold text-gray-900">BlueWaveZone Team</div>
                 <div className="text-gray-500 text-sm">Experts in sustainable agricultural solutions</div>
               </div>
             </div>

@@ -140,9 +140,12 @@ const IndustryArticlesSection: React.FC = () => (
       </div>
       
       <div className="text-center">
-        <button className="px-8 py-3 border-2 border-[var(--color-brown)] rounded-lg text-[var(--color-brown)] font-semibold bg-white hover:bg-[var(--color-brown)] hover:text-white transition-all duration-300 hover:shadow-md transform hover:-translate-y-0.5">
+        <Link 
+          to="/industry"
+          className="inline-block px-8 py-3 border-2 border-[var(--color-brown)] rounded-lg text-[var(--color-brown)] font-semibold bg-white hover:bg-[var(--color-brown)] hover:text-white transition-all duration-300 hover:shadow-md transform hover:-translate-y-0.5"
+        >
           View All Industry Articles
-        </button>
+        </Link>
       </div>
     </div>
   </section>

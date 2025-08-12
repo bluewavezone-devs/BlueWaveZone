@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import TypewriterText from './TypewriterText';
 
 // Animation variants
@@ -159,14 +160,16 @@ const HeroSection: React.FC = () => {
           }
         }}
       >
-        <motion.button
-          className="px-10 py-4 text-lg rounded border-2 border-[var(--color-brown)] text-[var(--color-brown)] font-semibold hover:bg-[var(--color-brown)] hover:text-white transition-all duration-300 transform hover:scale-105"
-          style={{ fontFamily: 'var(--font-body)', minWidth: '220px' }}
-          whileHover={{ scale: 1.05, boxShadow: '0 5px 15px rgba(0,0,0,0.1)' }}
-          whileTap={{ scale: 0.98 }}
-        >
-          Explore Our Science
-        </motion.button>
+        <Link to="/science">
+          <motion.button
+            className="px-10 py-4 text-lg rounded border-2 border-[var(--color-brown)] text-[var(--color-brown)] font-semibold hover:bg-[var(--color-brown)] hover:text-white transition-all duration-300 transform hover:scale-105"
+            style={{ fontFamily: 'var(--font-body)', minWidth: '220px' }}
+            whileHover={{ scale: 1.05, boxShadow: '0 5px 15px rgba(0,0,0,0.1)' }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Explore Our Science
+          </motion.button>
+        </Link>
       </motion.div>
       <motion.div 
         className="w-full"
