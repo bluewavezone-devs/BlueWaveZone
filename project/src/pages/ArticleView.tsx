@@ -71,15 +71,17 @@ const ArticleView: React.FC = () => {
             <h1 className="text-4xl font-extrabold mb-4 leading-tight text-gray-900">{article.title}</h1>
             <p className="text-lg text-gray-600 mb-4 font-medium">{article.excerpt}</p>
             {/* Author Details */}
-            <div className="flex items-center gap-4 mb-8">
-              <img 
-                src="/favicon.ico" 
-                alt="BlueWave Zone Logo" 
-                className="w-14 h-14 rounded-full border-2 border-teal-300 object-cover" 
-              />
+            <div className="flex items-center gap-4 mb-8 p-4 bg-gray-50 rounded-lg">
+              <div className="flex-shrink-0">
+                <img 
+                  src="/favicon.ico" 
+                  alt="BlueWave Zone Logo" 
+                  className="w-12 h-12 object-contain" 
+                />
+              </div>
               <div>
-                <div className="font-semibold text-gray-900">BlueWaveZone Team</div>
-                <div className="text-gray-500 text-sm">Experts in sustainable agricultural solutions</div>
+                <h3 className="text-lg font-semibold text-gray-900">BlueWaveZone Team</h3>
+                <p className="text-gray-600 text-sm">Experts in sustainable agricultural solutions</p>
               </div>
             </div>
             {/* Rich Content */}
