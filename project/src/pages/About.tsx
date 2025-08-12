@@ -4,39 +4,22 @@ import { Mail, FileText } from 'lucide-react';
 
 const About: React.FC = () => {
 
-  const [contactForm, setContactForm] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    message: 'Leave your comment or document request in the box below.'
-  });
-
-  const [documentForm, setDocumentForm] = useState({
+  const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: 'admin@bluewavezone.co.za',
-    requestDetails: 'Leave your comment or document request in the box below.'
+    message: 'Your Comment or Document Request with the sector in which you are involved plus the reason for requesting specific certification, in the box below *'
   });
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Contact form submitted:', contactForm);
+    console.log('Form submitted:', formData);
   };
 
-  const handleDocumentSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Document request submitted:', documentForm);
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, form: string) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    if (form === 'contact') {
-      setContactForm(prev => ({ ...prev, [name]: value }));
-    } else {
-      setDocumentForm(prev => ({ ...prev, [name]: value }));
-    }
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   // Define FAQ type
@@ -155,135 +138,73 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Forms Section */}
+      {/* Contact Form Section */}
       <section className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Us Form */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-center mb-6">
-                <Mail className="h-6 w-6 text-teal-600 mr-2" />
-                <h2 className="text-2xl font-bold">Contact Us</h2>
-              </div>
-              <form onSubmit={handleContactSubmit}>
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
-                    <input
-                      type="text"
-                      name="firstName"
-                      value={contactForm.firstName}
-                      onChange={(e) => handleInputChange(e, 'contact')}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={contactForm.lastName}
-                      onChange={(e) => handleInputChange(e, 'contact')}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={contactForm.email}
-                    onChange={(e) => handleInputChange(e, 'contact')}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
-                    required
-                  />
-                </div>
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Your Comment or Document Request *</label>
-                  <textarea
-                    name="message"
-                    value={contactForm.message}
-                    onChange={(e) => handleInputChange(e, 'contact')}
-                    rows={4}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
-                    required
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700 transition-colors duration-200"
-                >
-                  Submit
-                </button>
-              </form>
+        <div className="max-w-3xl mx-auto px-4">
+          <div className="bg-white p-8 rounded-lg shadow-md">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-[var(--color-brown)] mb-2">Contact Us</h2>
+              <p className="text-gray-600">Send us your inquiries or document requests</p>
             </div>
-
-            {/* Document Request Form */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-center mb-6">
-                <FileText className="h-6 w-6 text-teal-600 mr-2" />
-                <h2 className="text-2xl font-bold">Document Request</h2>
-              </div>
-              <form onSubmit={handleDocumentSubmit}>
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
-                    <input
-                      type="text"
-                      name="firstName"
-                      value={documentForm.firstName}
-                      onChange={(e) => handleInputChange(e, 'document')}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={documentForm.lastName}
-                      onChange={(e) => handleInputChange(e, 'document')}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+            <form onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
                   <input
-                    type="email"
-                    name="email"
-                    value={documentForm.email}
-                    onChange={(e) => handleInputChange(e, 'document')}
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
                     required
                   />
                 </div>
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Please supply us with the sector in which you are involved plus the reason for requesting specific certification, in the box below *
-                  </label>
-                  <textarea
-                    name="requestDetails"
-                    value={documentForm.requestDetails}
-                    onChange={(e) => handleInputChange(e, 'document')}
-                    rows={4}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
                     required
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="w-full bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700 transition-colors duration-200"
-                >
-                  Submit
-                </button>
-              </form>
-            </div>
+              </div>
+              <div className="mb-6">
+                <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
+                  required
+                />
+              </div>
+              <div className="mb-8">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Your Comment or Document Request
+                </label>
+                <p className="text-xs text-gray-500 mb-2">
+                  Please include the sector you're involved in and the reason for requesting specific certification
+                </p>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={6}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-teal-600 text-white py-3 px-6 rounded-md hover:bg-teal-700 transition-colors duration-200 text-lg font-medium"
+              >
+                Submit
+              </button>
+            </form>
           </div>
         </div>
       </section>

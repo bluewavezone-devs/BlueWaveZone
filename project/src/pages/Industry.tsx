@@ -66,7 +66,7 @@ const Industry: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="mailto:contact@bluewavezone.co.za"
+              href="mailto:admin@bluewavezone.co.za"
               className="px-8 py-3 bg-white text-[var(--color-brown)] rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
               Contact Us

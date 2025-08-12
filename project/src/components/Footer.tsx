@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
               <div className="flex items-start gap-2">
                 <Mail className="h-5 w-5 mt-1" style={{ color: 'var(--color-teal)' }} />
                 <div>
-                  <p className="text-gray-300">hello@bluewavezone.co.za</p>
+                  <p className="text-gray-300">admin@bluewavezone.co.za</p>
                 </div>
               </div>
               <div className="flex items-start gap-2">

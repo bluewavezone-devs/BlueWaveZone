@@ -71,17 +71,30 @@ const ArticleView: React.FC = () => {
             <h1 className="text-4xl font-extrabold mb-4 leading-tight text-gray-900">{article.title}</h1>
             <p className="text-lg text-gray-600 mb-4 font-medium">{article.excerpt}</p>
             {/* Author Details */}
-            <div className="flex items-center gap-4 mb-8 p-4 bg-gray-50 rounded-lg">
-              <div className="flex-shrink-0">
-                <img 
-                  src="/favicon.ico" 
-                  alt="BlueWave Zone Logo" 
-                  className="w-12 h-12 object-contain" 
-                />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">BlueWaveZone Team</h3>
-                <p className="text-gray-600 text-sm">Experts in sustainable agricultural solutions</p>
+            <div className="mb-8 bg-gradient-to-r from-teal-50 to-blue-50 p-6 rounded-xl border border-teal-100 shadow-sm">
+              <div className="flex items-center gap-5">
+                <div className="flex-shrink-0">
+                  <img 
+                    src="/images/team-logo.png" 
+                    alt="BlueWave Zone Logo" 
+                    className="w-14 h-14 object-contain" 
+                  />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-xl font-bold text-gray-800">BlueWave Zone</h3>
+                    <span className="text-xs bg-teal-100 text-teal-800 px-2 py-0.5 rounded-full font-medium">Team</span>
+                  </div>
+                  <p className="text-gray-600 mt-1">Pioneering sustainable agricultural solutions through innovative microbial research and technology</p>
+                  <div className="flex items-center gap-2 mt-2">
+                    <a href="/about" className="text-teal-600 hover:text-teal-800 text-sm font-medium flex items-center">
+                      Learn more about us
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
             {/* Rich Content */}
