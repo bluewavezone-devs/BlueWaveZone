@@ -78,11 +78,15 @@
 </head>
 <body>
     <!-- Back button bar -->
-    <div class="container mx-auto px-4" style="padding-top: 1rem;">
-        <button onclick="if (document.referrer) { history.back(); } else { window.location.href='/' }" 
-                class="inline-flex items-center gap-2 text-white px-4 py-2 rounded" 
-                style="background-color: var(--color-brown); border: none; cursor: pointer;">
-            &#8592; Go Back
+    <div class="container mx-auto px-4" style="padding-top: 1rem; text-align: center;">
+        <button onclick="if (document.referrer) { history.back(); } else { window.location.href='/' }"
+                aria-label="Go back"
+                class="inline-flex items-center gap-2 text-white"
+                style="background-color: var(--color-brown); color: #fff; border: none; cursor: pointer; padding: 0.75rem 1.25rem; border-radius: 9999px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: background-color 150ms ease;"
+                onmouseover="this.style.backgroundColor='#4b332c'"
+                onmouseout="this.style.backgroundColor='var(--color-brown)'">
+            <span style="font-size: 1.1rem; line-height: 1;">&#8592;</span>
+            <span style="font-weight: 600;">Go Back</span>
         </button>
     </div>
     <div class="container mx-auto px-4 py-16 max-w-4xl">
