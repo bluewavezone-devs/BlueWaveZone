@@ -184,11 +184,8 @@ const About: React.FC = () => {
               </div>
               <div className="mb-8">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Your Comment or Document Request
+                  Your Comment or Document Request with the sector in which you are involved plus the reason for requesting specific certification, in the box below *
                 </label>
-                <p className="text-xs text-gray-500 mb-2">
-                  Please include the sector you're involved in and the reason for requesting specific certification
-                </p>
                 <textarea
                   name="message"
                   value={formData.message}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, MapPin, Microscope } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -9,7 +9,12 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Microscope className="h-8 w-8" style={{ color: 'var(--color-teal)' }} />
+              <img 
+                src="/images/logo.png" 
+                alt="BlueWave Zone Logo" 
+                className="h-8 w-auto"
+                style={{ maxHeight: '32px' }}
+              />
               <span className="text-xl font-bold">BlueWave Zone</span>
             </div>
             <p className="text-gray-300 leading-relaxed">
@@ -45,12 +50,31 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-semibold mb-4" style={{ color: 'var(--color-teal)' }}>Research Areas</h4>
             <ul className="space-y-2 text-gray-300">
-              <li>Rhizosphere Bacteria</li>
-              <li>Pure Soil Extraction</li>
-              <li>Agricultural Applications</li>
-              <li>Industrial Biotechnology</li>
-              <li>Medical Research</li>
-              <li>Gut Microbiota</li>
+              <li>
+                <a href="/#the-science" className="hover:text-white transition-colors">
+                  The Science
+                </a>
+              </li>
+              <li>
+                <a href="/#the-rhizosphere-effect" className="hover:text-white transition-colors">
+                  The Rhizosphere Effect
+                </a>
+              </li>
+              <li>
+                <a href="/#history-&-research" className="hover:text-white transition-colors">
+                  History & Research
+                </a>
+              </li>
+              <li>
+                <a href="/#industrial-applications" className="hover:text-white transition-colors">
+                  Industrial Applications
+                </a>
+              </li>
+              <li>
+                <a href="/#sustainable-agriculture" className="hover:text-white transition-colors">
+                  Sustainable Agriculture
+                </a>
+              </li>
             </ul>
           </div>
         </div>

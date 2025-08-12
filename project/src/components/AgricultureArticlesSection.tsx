@@ -31,7 +31,7 @@ const agricultureArticles: Article[] = [
 
 const AgricultureArticlesSection: React.FC = () => {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
+    <section id="sustainable-agriculture" className="relative py-24 md:py-32 overflow-hidden">
       {/* Background Video with Overlay */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <video 
