@@ -513,7 +513,7 @@ export const articlePosts: ArticlePost[] = [
     excerpt: 'As the global demand for organic produce escalates, farmers are increasingly interested in transitioning from conventional to organic agriculture.',
     date: '2023-11-06',
     category: 'Sustainable Agriculture',
-    image: '/images/organic-farming.jpg',
+    image: '/images/sustainable-agriculture-plant-growth-1.jpg',
     slug: 'organic-transition',
     author: {
       name: 'BlueWaveZone',
@@ -613,7 +613,7 @@ export const articlePosts: ArticlePost[] = [
     excerpt: 'In the quest to address the multifaceted challenges besieging modern agriculture, the strategic deployment of beneficial bacterial consortia emerges as a compelling restorative for the beleaguered rhizosphere and soil health.',
     date: '2023-11-06',
     category: 'Sustainable Agriculture',
-    image: '/images/soil-bacteria.jpg',
+    image: '/images/beneficial-bacteria-microscope-2.jpg',
     slug: 'bacterial-consortia',
     author: {
       name: 'BlueWaveZone',
@@ -681,7 +681,7 @@ export const articlePosts: ArticlePost[] = [
     excerpt: 'Agriculture today stands at a critical juncture, confronted by a confluence of escalating challenges that threaten global food security and environmental sustainability.',
     date: '2023-11-06',
     category: 'Sustainable Agriculture',
-    image: '/images/sustainable-farming.jpg',
+    image: '/images/soil-testing-laboratory.jpg',
     slug: 'agriculture-crossroads',
     author: {
       name: 'BlueWaveZone',
