@@ -219,21 +219,38 @@ const NewHeader = () => {
         }`}>
         <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
-            {/* Logo */}
+            {/* Logo with Text */}
             <motion.div 
-              className="flex-shrink-0"
+              className="flex-shrink-0 flex items-center"
               variants={itemVariants}
               initial="hidden"
-              animate="visible">
-              <Link to="/" className="flex items-center h-full">
-                <motion.img 
-                  src={logo} 
-                  alt="BlueWave Zone Logo" 
-                  className="h-14"
+              animate="visible"
+            >
+              <Link to="/" className="flex items-center h-full space-x-3 group">
+                <motion.div 
+                  className="relative"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-                />
+                >
+                  <img 
+                    src={logo} 
+                    alt="BlueWave Zone Logo" 
+                    className="h-12 w-12 object-contain"
+                  />
+                </motion.div>
+                <span 
+                  className="text-white"
+                  style={{
+                    fontFamily: '"Playfair Display", serif',
+                    fontWeight: 500,
+                    fontSize: '1.5rem',
+                    lineHeight: '1.2',
+                    letterSpacing: '0.5px'
+                  }}
+                >
+                  BlueWaveZone
+                </span>
               </Link>
             </motion.div>
 
