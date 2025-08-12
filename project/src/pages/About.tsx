@@ -7,8 +7,8 @@ const About: React.FC = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    email: 'admin@bluewavezone.co.za',
-    message: 'Your Comment or Document Request with the sector in which you are involved plus the reason for requesting specific certification, in the box below *'
+    email: '',
+    message: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -73,11 +73,11 @@ const About: React.FC = () => {
             >
               About Us
             </motion.h1>
-            <div className="mt-8">
+            <div className="flex-shrink-0 bg-white p-2 rounded-lg border border-gray-200 shadow-sm">
               <img 
-                src="/images/soil-research-analysis.jpg"
-                alt="Soil research and analysis"
-                className="w-full h-auto max-h-[300px] object-cover rounded-lg shadow-lg"
+                src="/images/team-logo.png" 
+                alt="BlueWave Zone Logo" 
+                className="w-14 h-14 object-contain" 
               />
             </div>
           </div>
