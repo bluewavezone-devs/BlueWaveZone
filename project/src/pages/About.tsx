@@ -73,11 +73,11 @@ const About: React.FC = () => {
             >
               About Us
             </motion.h1>
-            <div className="flex-shrink-0 bg-white p-2 rounded-lg border border-gray-200 shadow-sm">
+            <div className="mt-8 rounded-xl overflow-hidden shadow-lg">
               <img 
-                src="/images/team-logo.png" 
-                alt="BlueWave Zone Logo" 
-                className="w-14 h-14 object-contain" 
+                src="/images/soil-research-analysis.jpg" 
+                alt="Soil research and analysis" 
+                className="w-full h-auto max-h-[300px] object-cover" 
               />
             </div>
           </div>
