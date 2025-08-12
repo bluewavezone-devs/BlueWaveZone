@@ -85,13 +85,13 @@ const Footer: React.FC = () => {
               © 2025 BlueWave Zone. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <a href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
+              <a href="/privacy-policy.html" className="text-gray-400 hover:text-white transition-colors">
                 Privacy Policy
               </a>
-              <a href="/terms-of-use" className="text-gray-400 hover:text-white transition-colors">
+              <a href="/terms-of-use.html" className="text-gray-400 hover:text-white transition-colors">
                 Terms of Use
               </a>
-              <a href="/code-of-conduct" className="text-gray-400 hover:text-white transition-colors">
+              <a href="/code-of-conduct.html" className="text-gray-400 hover:text-white transition-colors">
                 Code of Conduct
               </a>
             </div>
